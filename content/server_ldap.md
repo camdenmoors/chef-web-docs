@@ -29,25 +29,25 @@ credentials instead of having a separate username and password.
 
 The following attributes **MUST** be in the user LDAP record:
 
--   `mail:`
--   `sAMAccountName:` or `uid:`
+- `mail:`
+- `sAMAccountName:` or `uid:`
 
 The following attributes **SHOULD** be in the user LDAP record:
 
--   `displayname:`
--   `givenname:`
--   `sn:`
--   `c:`
--   `l:`
+- `displayname:`
+- `givenname:`
+- `sn:`
+- `c:`
+- `l:`
 
 {{< /warning >}}
 
 To configure the Chef Infra Server to use Active Directory or LDAP do
 the following:
 
-1.  Install the Chef management console (if it is not already).
+1. Install the Chef management console (if it is not already).
 
-2.  Add the following settings to the `/etc/opscode/chef-server.rb`
+2. Add the following settings to the `/etc/opscode/chef-server.rb`
     file. These settings must be added to the `chef-server.rb` file on
     each machine in the Chef Infra Server frontend deployment of a High
     Availability installation as well as on Chef servers in a standalone
@@ -62,7 +62,7 @@ the following:
 
     {{< /note >}}
 
-3.  {{< readFile_shortcode file="install_chef_server_reconfigure.md" >}}
+3. {{< readFile_shortcode file="install_chef_server_reconfigure.md" >}}
 
 At this point, all users should be able to use their Active Directory or
 LDAP usernames and passwords to log in to the Chef Infra Server.

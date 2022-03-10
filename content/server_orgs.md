@@ -11,7 +11,7 @@ product = ["client", "server"]
     identifier = "legacy/manage/server_orgs.md Organizations & Groups"
     parent = "legacy/manage"
 +++
-
+<!-- markdownlint-disable-file MD033 MD024-->
 {{% server_rbac %}}
 
 The Chef Infra Server uses organizations, groups, and users to define
@@ -35,7 +35,7 @@ role-based access control:
 </tr>
 <tr>
 <td><p><img src="/images/icon_server_groups.svg" class="align-center" width="130" alt="image" /></p></td>
-<td><p>A group is used to define access to object types and objects in the Chef Infra Server and also to assign permissions that determine what types of tasks are available to members of that group who are authorized to perform them. Groups are configured per-organization.</p>
+<td><p>A group is used to define access to object types and objects in the Chef Infra Server and also to assign permissions that determine what types of tasks are available to members of that group who are authorized to perform them. Groups are configured by organization.</p>
 <p>Individual users who are members of a group will inherit the permissions assigned to the group. The Chef Infra Server includes the following default groups: <code>admins</code>, <code>clients</code>, and <code>users</code>. For users of the hosted Chef Infra Server, an additional default group is provided: <code>billing_admins</code>.</p></td>
 </tr>
 <tr>
@@ -53,10 +53,10 @@ When a user makes a request to the Chef Infra Server using the Chef
 Infra Server API, permission to perform that action is determined by the
 following process:
 
-1.  Check if the user has permission to the object type
-2.  If no, recursively check if the user is a member of a security group
+1. Check if the user has permission to the object type
+2. If no, recursively check if the user is a member of a security group
     that has permission to that object
-3.  If yes, allow the user to perform the action
+3. If yes, allow the user to perform the action
 
 Permissions are managed using the Chef management console add-on in the
 Chef Infra Server web user interface.
@@ -74,21 +74,19 @@ organization on the Chef Infra Server.
 A user may belong to multiple organizations under the following
 conditions:
 
--   Role-based access control is configured per-organization
--   For a single user to interact with the Chef Infra Server using knife
-    from the same chef-repo, that user may need to edit their config.rb
-    file prior to that interaction
+- Role-based access control is configured for each organization
+- For a single user to interact with the Chef Infra Server using knife from the same chef-repo, that user may need to edit their `config.rb` file before that interaction
 
 Using multiple organizations within the Chef Infra Server ensures that
 the same toolset, coding patterns and practices, physical hardware, and
 product support effort is being applied across the entire company, even
 when:
 
--   Multiple product groups must be supported---each product group can
+- Multiple product groups must be supported---each product group can
     have its own security requirements, schedule, and goals
--   Updates occur on different schedules---the nodes in one organization
+- Updates occur on different schedules---the nodes in one organization
     are managed completely independently from the nodes in another
--   Individual teams have competing needs for object and object
+- Individual teams have competing needs for object and object
     types---data bags, environments, roles, and cookbooks are unique to
     each organization, even if they share the same name
 
@@ -213,7 +211,7 @@ The Chef Infra Server includes the following default groups:
 </tr>
 <tr>
 <td><code>clients</code></td>
-<td>The <code>clients</code> group defines the list of nodes on which a Chef Infra Client is installed and under management by Chef. In general, think of this permission as "all of the non-human actors---Chef Infra Client, in nearly every case---that get data from, and/or upload data to, the Chef server". Newly-created Chef Infra Client instances are added to this group automatically.</td>
+<td>The <code>clients</code> group defines the list of nodes on which a Chef Infra Client is installed and under management by Chef. In general, think of this permission as "all of the non-human actors---Chef Infra Client, in almost every case---that get data from, and/or upload data to, the Chef server". Newly-created Chef Infra Client instances are added to this group automatically.</td>
 </tr>
 <tr>
 <td><code>public_key_read_access</code></td>
@@ -293,8 +291,6 @@ The `admins` group is assigned the following:
 #### billing_admins
 
 The `billing_admins` group is assigned the following:
-
-
 
 #### billing_admins
 
@@ -435,10 +431,10 @@ The `clients` group is assigned the following:
 The `public_key_read_access` group controls which users and clients have
 [read permissions to the following endpoints](/api_chef_server/):
 
--   GET /clients/CLIENT/keys
--   GET /clients/CLIENT/keys/KEY
--   GET /users/USER/keys
--   GET /users/USER/keys/
+- GET /clients/CLIENT/keys
+- GET /clients/CLIENT/keys/KEY
+- GET /users/USER/keys
+- GET /users/USER/keys/
 
 By default, the `public_key_read_access` assigns all members of the
 `users` and `clients` group permission to these endpoints:
@@ -493,8 +489,6 @@ By default, the `public_key_read_access` assigns all members of the
 #### users
 
 The `users` group is assigned the following:
-
-
 
 #### users
 
@@ -670,11 +664,11 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 {{% ctl_chef_server_org_create %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_create_syntax %}}
 
-**Options**
+#### Options
 
 {{% ctl_chef_server_org_create_options %}}
 
@@ -682,7 +676,7 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 {{% ctl_chef_server_org_delete %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_delete_syntax %}}
 
@@ -690,11 +684,11 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 {{% ctl_chef_server_org_list %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_list_syntax %}}
 
-**Options**
+#### Options
 
 {{% ctl_chef_server_org_list_options %}}
 
@@ -702,7 +696,7 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 {{% ctl_chef_server_org_show %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_show_syntax %}}
 
@@ -710,11 +704,11 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 {{% ctl_chef_server_org_user_add %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_user_add_syntax %}}
 
-**Options**
+#### Options
 
 {{% ctl_chef_server_org_user_add_options %}}
 
@@ -722,6 +716,6 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 {{% ctl_chef_server_org_user_remove %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_user_remove_syntax %}}

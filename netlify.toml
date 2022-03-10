@@ -2,10 +2,10 @@
   publish = "public"
 
 [build.environment]
-  HUGO_VERSION = "0.83.1"
+  HUGO_VERSION = "0.91.2"
   HUGO_ENABLEGITINFO = "true"
-  GO_VERSION = "1.12"
-  NODE_ENV = "development"
+  GO_VERSION = "1.17"
+  NODE_VERSION = "17"
 
 [build.processing]
   skip_processing = true
@@ -18,10 +18,40 @@
 [context.deploy-preview]
   command = "make assets; hugo --gc --minify --enableGitInfo --buildFuture"
 
+[context.branch-deploy]
+  command = "make assets; hugo --gc --minify --enableGitInfo"
+  [context.branch-deploy.environment]
+    HUGO_ENV = "production"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "X-XSS-Protection: 1"
+    Referrer-Policy = "no-referrer-when-downgrade"
+    Strict-Transport-Security = "max-age=2592000"
+    Permissions-Policy = "vibrate=(), geolocation=(), midi=(), notifications=(), push=(), sync-xhr=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), speaker=(), vibrate=(), fullscreen=(), payment=()"
+
 ## redirects traffic from old InSpec docs inspec.io/docs/
 ## https://docs.netlify.com/routing/redirects/#syntax-for-the-netlify-configuration-file
 
 [[redirects]]
   from = "/inspec/reference/*"
   to = "/inspec/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/resource_*"
+  to = "/resources/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/inspec_reference.html"
+  to = "/inspec/cli"
+  status = 301
+
+[[redirects]]
+  from = "/plugin_knife_windows.html"
+  to = "/workstation/knife_windows/"
   status = 301

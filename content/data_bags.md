@@ -2,14 +2,14 @@
 title = "About Data Bags"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/data_bags.html", "/secrets.html", "/secrets/"]
+aliases = ["/data_bags.html", "/secrets.html", "/secrets/", "/essentials_data_bags.html"]
 product = ["client", "server"]
 
 [menu]
   [menu.infra]
     title = "Data Bags"
-    identifier = "chef_infra/concepts/policy/data_bags.md Data Bags"
-    parent = "chef_infra/concepts/policy"
+    identifier = "chef_infra/policyfiles/data_bags.md Data Bags"
+    parent = "chef_infra/policyfiles"
     weight = 40
 +++
 
@@ -97,14 +97,14 @@ Data bags can be accessed in the following ways:
 
 {{% data_bag_recipes_load_using_recipe_dsl %}}
 
-#### Create and edit
+#### Create and Edit
 
 {{% data_bag_recipes_edit_within_recipe %}}
 
-#### Create users
+#### Create Users
 
 {{% data_bag_recipes_create_users %}}
 
-### chef-solo
+### `chef-solo`
 
 {{% data_bag_chef_solo %}}

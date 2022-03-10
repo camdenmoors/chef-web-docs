@@ -1,17 +1,16 @@
 +++
-title = "Deprecation: Deprecation of old shell_out APIs (CHEF-26)"
+title = "Deprecation: Deprecation of legacy shell_out APIs (CHEF-26)"
 draft = false
 
 gh_repo = "chef-web-docs"
 robots = "noindex"
-
-
+sitemapExclude = true
 aliases = "/deprecations_shell_out.html"
 +++
 
-The functionality of multiple old <span
+The functionality of multiple legacy <span
 class="title-ref">shell_out</span> APIs has been collapsed into the
-<span class="title-ref">shell_out</span> API itself, and the old
+<span class="title-ref">shell_out</span> API itself, and the legacy
 methods have been deprecated.
 
 The <span class="title-ref">shell_out_compact</span> API has been
@@ -27,7 +26,7 @@ functionality of <span
 class="title-ref">shell_out_with_systems_locale</span> has been
 replaced by the <span class="title-ref">default_env: false</span> flag.
 
-The "banged" versions of those APIs (e.g. <span
+The "banged" versions of those APIs (for example <span
 class="title-ref">shell_out_compact!</span>) changes identically to
 use <span class="title-ref">shell_out!</span>.
 

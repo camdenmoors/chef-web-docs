@@ -15,6 +15,8 @@ syntax_full_code_block: |-
     chef_license                   String
     chef_server_url                String
     config_directory               String
+    data_collector_server_url      String
+    data_collector_token           String
     event_loggers                  Array # default value: []
     exception_handlers             Array # default value: []
     file_backup_path               String
@@ -36,6 +38,7 @@ syntax_full_code_block: |-
     pid_file                       String
     policy_group                   String
     policy_name                    String
+    policy_persist_run_list        true, false
     report_handlers                Array # default value: []
     ssl_verify_mode                Symbol, String
     start_handlers                 Array # default value: []
@@ -48,20 +51,20 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`additional_config`, `chef_license`, `chef_server_url`, `config_directory`, `event_loggers`,
-  `exception_handlers`, `file_backup_path`, `file_cache_path`, `file_staging_uses_destdir`,
-  `formatters`, `ftp_proxy`, `group`, `http_proxy`, `https_proxy`, `log_level`, `log_location`,
-  `minimal_ohai`, `named_run_list`, `no_proxy`, `node_name`, `ohai_disabled_plugins`,
-  `ohai_optional_plugins`, `pid_file`, `policy_group`, `policy_name`, `report_handlers`,
-  `ssl_verify_mode`, `start_handlers`, and `user` are the properties available to
-  this resource."
+- "`additional_config`, `chef_license`, `chef_server_url`, `config_directory`, `data_collector_server_url`,
+  `data_collector_token`, `event_loggers`, `exception_handlers`, `file_backup_path`,
+  `file_cache_path`, `file_staging_uses_destdir`, `formatters`, `ftp_proxy`, `group`,
+  `http_proxy`, `https_proxy`, `log_level`, `log_location`, `minimal_ohai`, `named_run_list`,
+  `no_proxy`, `node_name`, `ohai_disabled_plugins`, `ohai_optional_plugins`, `pid_file`,
+  `policy_group`, `policy_name`, `policy_persist_run_list`, `report_handlers`, `ssl_verify_mode`,
+  `start_handlers`, and `user` are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Create a client.rb config file. (default)
+    markdown: Create a client.rb config file for configuring Chef Infra Client. (default)
   :remove:
-    markdown: Remove a client.rb config file.
+    markdown: Remove a client.rb config file for configuring Chef Infra Client.
 properties_list:
 - property: additional_config
   ruby_type: String
@@ -86,6 +89,26 @@ properties_list:
   default_value: "`/etc/chef/` on *nix-like systems and `C:\\chef\\` on Windows"
   description_list:
   - markdown: The directory to store the client.rb in.
+- property: data_collector_server_url
+  ruby_type: String
+  required: false
+  new_in: '17.8'
+  description_list:
+  - markdown: The data collector URL (typically automate) to send node, converge,
+      and compliance data.
+  - note:
+      markdown: If possible, use Chef Infra Server to do all data collection reporting,
+        as this removes the need to distribute tokens to individual nodes.
+- property: data_collector_token
+  ruby_type: String
+  required: false
+  new_in: '17.8'
+  description_list:
+  - markdown: The data collector token to interact with the data collector server
+      URL (Automate).
+  - note:
+      markdown: If possible, use Chef Infra Server to do all data collection reporting,
+        as this removes the need to distribute tokens to individual nodes.
 - property: event_loggers
   ruby_type: Array
   required: false
@@ -126,7 +149,7 @@ properties_list:
   required: false
   default_value: "[]"
   description_list:
-  - markdown: Client logging formatters to load
+  - markdown: Client logging formatters to load.
 - property: ftp_proxy
   ruby_type: String
   required: false
@@ -231,6 +254,13 @@ properties_list:
   description_list:
   - markdown: The name of a policy, as identified by the `name` setting in a Policyfile.rb
       file. `policy_group`  when setting this property.
+- property: policy_persist_run_list
+  ruby_type: true, false
+  required: false
+  new_in: '17.3'
+  description_list:
+  - markdown: Override run lists defined in a Policyfile with the `run_list` defined
+      on the Chef Infra Server.
 - property: report_handlers
   ruby_type: Array
   required: false
@@ -274,7 +304,7 @@ properties_list:
 examples: |
   **Bare minimum Chef Infra Client client.rb**:
 
-  The absolute minimum configuration necessary for a node to communicate with the Infra Server is the URL of the Infra Server. All other configuration options either have values at the server side (Policyfiles, Roles, Environments, etc) or have default values determined at client startup.
+  The absolute minimum configuration necessary for a node to communicate with the Chef Infra Server is the URL of the Chef Infra Server. All other configuration options either have values at the server side (Policyfiles, Roles, Environments, etc) or have default values determined at client startup.
 
   ```ruby
   chef_client_config 'Create client.rb' do
@@ -330,5 +360,15 @@ examples: |
        'arguments' => ["'FirstArgument'", "'SecondArgument'"],
       },
     ]
+  end
+  ```
+
+  **Report directly to the [Chef Automate data collector endpoint](/automate/data_collection/#configure-chef-infra-client-to-use-the-data-collector-endpoint-in-chef-automate).**
+
+  ```ruby
+  chef_client_config 'Create client.rb' do
+    chef_server_url 'https://chef.example.dmz'
+    data_collector_server_url 'https://automate.example.dmz'
+    data_collector_token 'TEST_TOKEN_TEST'
   end
   ```

@@ -10,10 +10,10 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "openbsd_package"
-    identifier = "chef_infra/cookbook_reference/resources/openbsd_package"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/openbsd_package"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the openbsd_package.yaml file in the data directory. -->
-<!-- To suggest a change, edit the https://github.com/chef/chef/blob/master/lib/chef/resource/openbsd_package.rb file
+<!-- To suggest a change, edit the https://github.com/chef/chef/blob/main/lib/chef/resource/openbsd_package.rb file
       and submit a pull request to the https://github.com/chef/chef repository. -->

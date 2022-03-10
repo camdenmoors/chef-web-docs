@@ -7,9 +7,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.infra]
     title = "Checking Platforms"
-    identifier = "chef_infra/cookbook_reference/infra_language/checking_platforms.md Checking Platforms"
-    parent = "chef_infra/cookbook_reference/infra_language"
-    weight = 30
+    identifier = "chef_infra/infra_language/checking_platforms.md Checking Platforms"
+    parent = "chef_infra/infra_language"
 +++
 
 ## platform?
@@ -48,6 +47,10 @@ where:
 <tr>
 <td><code>alibabalinux</code></td>
 <td>Alibaba Cloud Linux</td>
+</tr>
+<tr>
+<td><code>almalinux</code></td>
+<td>AlmaLinux</td>
 </tr>
 <tr>
 <td><code>amazon</code></td>
@@ -122,6 +125,10 @@ where:
 <td>Rocky Linux</td>
 </tr>
 <tr>
+<td><code>sangoma</code></td>
+<td>Sangoma Linux</td>
+</tr>
+<tr>
 <td><code>scientific</code></td>
 <td>Scientific Linux</td>
 </tr>
@@ -131,15 +138,19 @@ where:
 </tr>
 <tr>
 <td><code>suse</code></td>
-<td>SUSE Enterprise Linux Server.</td>
+<td>SUSE Linux Enterprise Server.</td>
 </tr>
 <tr>
 <td><code>ubuntu</code></td>
 <td>Ubuntu Linux</td>
 </tr>
 <tr>
+<td><code>virtuozzo</code></td>
+<td>Virtuozzo</td>
+</tr>
+<tr>
 <td><code>windows</code></td>
-<td>Microsoft Windows</td>
+<td>Windows</td>
 </tr>
 <tr>
 <td><code>xenserver</code></td>
@@ -150,13 +161,13 @@ where:
 
 ### Examples
 
-**Installing the cron package on Debian systems**
+#### Installing the cron package on Debian systems
 
 ```ruby
 package 'cron' if platform?('debian')
 ```
 
-**Deleting a file on Red Hat and Debian systems**
+#### Deleting a file on Red Hat and Debian systems
 
 ```ruby
 if platform?('redhat', 'debian')
@@ -166,7 +177,7 @@ if platform?('redhat', 'debian')
 end
 ```
 
-**Installing the correct Firefox package**
+#### Installing the correct Firefox package
 
 {{% resource_if_statement_use_with_platform %}}
 
@@ -249,7 +260,7 @@ where:
 </tr>
 <tr>
 <td><code>rhel</code></td>
-<td><code>redhat</code>, <code>centos</code>, <code>oracle</code>, <code>rocky</code>, <code>scientific</code>, <code>xenserver</code>, <code>clearos</code>, <code>bigip</code>, <code>parallels</code>, <code>xcp</code>, <code>alibabalinux</code>, and <code>ibm_powerkvm</code> platforms</td>
+<td><code>redhat</code>, <code>centos</code>, <code>oracle</code>, <code>almalinux</code>, <code>rocky</code>, <code>scientific</code>, <code>xenserver</code>, <code>clearos</code>, <code>bigip</code>, <code>parallels</code>, <code>xcp</code>, <code>virtuozzo</code>, <code>alibabalinux</code>, and <code>ibm_powerkvm</code> platforms</td>
 </tr>
 <tr>
 <td><code>solaris2</code></td>
@@ -280,7 +291,7 @@ or:
 platform_family?('slackware', 'suse', 'arch')
 ```
 
-**Use a specific binary for a specific platform**
+#### Use a specific binary for a specific platform
 
 {{< readFile_shortcode file="resource_remote_file_use_platform_family.md" >}}
 

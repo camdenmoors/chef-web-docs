@@ -4,16 +4,15 @@ draft = false
 
 gh_repo = "chef-web-docs"
 robots = "noindex"
-
-
+sitemapExclude = true
 aliases = "/deprecations_ohai_legacy_config.html"
 +++
 
-Ohai 8.8.0 (Chef Client 12.6.0) introduced a new Ohai configuration
+Ohai 8.8.0 (Chef Infra Client 12.6.0) introduced a new Ohai configuration
 system as defined in
-[RFC-053](https://github.com/chef/chef-rfc/blob/master/rfc053-ohai-config.md).
+[RFC-053](https://github.com/chef/chef-rfc/blob/main/rfc053-ohai-config.md).
 This system replaced the existing usage of `Ohai::Config` config system,
-which will be removed in Chef Client 13.
+which will be removed in Chef Infra Client 13.
 
 ## Remediation
 

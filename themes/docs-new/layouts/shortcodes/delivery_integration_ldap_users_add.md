@@ -1,6 +1,6 @@
 <div class="admonition-note"><p class="admonition-note-title">Note</p><div class="admonition-note-text">
 
-In order to add or edit users, you must have root shell access and the
+To add or edit users, you must have root shell access and the
 **Admin** role assigned in Workflow.
 
 </div></div>
@@ -19,9 +19,9 @@ To add or edit a user to Workflow:
 4.  In the Add New a User text area, select one of two types for user.
     The selection box is grey for the active selection.
 
-    -   **Internal** means you are manually adding the user to the
+    - **Internal** means you are manually adding the user to the
         Workflow database.
-    -   **LDAP** means the user is in an LDAP system that has been
+    - **LDAP** means the user is in an LDAP system that has been
         integrated to this Workflow.
 
     If you select **Internal**, options for **Name and Email**, first

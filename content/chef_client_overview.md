@@ -4,14 +4,14 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/chef_client_overview.html", "/chef_client.html"]
+aliases = ["/chef_client_overview.html", "/chef_client.html", "/essentials_nodes_chef_run.html"]
 
 [menu]
   [menu.infra]
     title = "Chef Infra Client Overview"
-    identifier = "chef_infra/concepts/chef_client_overview.md Chef Infra Client Overview"
-    parent = "chef_infra/concepts"
-    weight = 10
+    identifier = "chef_infra/overview/chef_client_overview.md Chef Infra Client Overview"
+    parent = "chef_infra/overview"
+    weight = 20
 +++
 
 {{< note >}}
@@ -21,7 +21,9 @@ For the `chef-client` command line tool, see
 
 {{< /note >}}
 
+<!-- markdownlint-disable MD036-->
 **New in Chef Infra Client 17**
+<!-- markdownlint-enable MD036-->
 
 Chef Infra Client's Compliance Phase lets you automatically execute compliance audits and view the results as part of any Chef Infra Client Run. The Compliance Phase replaces the legacy audit cookbook and works with your existing audit cookbook attributes. You can also set up the Compliance Phase for new cookbooks. See [Compliance Phase]({{< relref "chef_compliance_phase" >}}) documentation to upgrade.
 

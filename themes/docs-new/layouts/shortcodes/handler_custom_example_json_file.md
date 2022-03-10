@@ -1,6 +1,6 @@
 The
-[json_file](https://github.com/chef/chef/blob/master/lib/chef/handler/json_file.rb)
-handler is available from the **chef_handler** cookbook and can be used
+[json_file](https://github.com/chef/chef/blob/main/lib/chef/handler/json_file.rb)
+handler is available from the **chef_handler** resource and can be used
 with exceptions and reports. It serializes run status data to a JSON
 file. This handler may be enabled in one of the following ways.
 
@@ -24,7 +24,7 @@ chef_handler 'Chef::Handler::JsonFile' do
 end
 ```
 
-After it has run, the run status data can be loaded and inspected via
+After it has run, the run status data can be loaded and inspected using
 Interactive Ruby (IRb):
 
 ```ruby

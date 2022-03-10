@@ -1,19 +1,25 @@
 #main-content,
 .content {
   ul, ol {
-    margin-bottom: 28px;
-
-    li {
-      @extend .p;
-      margin-bottom: 0px;
-    }
+    margin-top: 1em;
+    margin-bottom: 1em;
   }
 
   ol {
     padding-left: rem-calc(16);
 
+    li {
+      p {
+        margin-bottom: .2rem;
+      }
+    }
+
     > li > ol {
       list-style-type: lower-alpha;
+    }
+    > li > ul {
+      margin-top: rem-calc(8);
+      margin-bottom: rem-calc(8);
     }
   }
 
@@ -29,11 +35,9 @@
         width: 1em;
         margin-left: -1em;
         font-weight: 900;
-        font-size: 1.2em;
       }
-      p {
+      p:first-child {
         margin-top: -1.7em;
-        margin-bottom: 2em;
       }
       div.highlight{
         margin-top: -3em;
@@ -42,51 +46,6 @@
       >button.copy-code-button{
         margin-top: -2em;
         margin-bottom: 3.7em;
-      }
-
-    }
-
-    &.reset {
-      @include reset-ul();
-    }
-
-    &.bordered-items {
-      @extend ul, .reset;
-      margin-bottom: 50px;
-      margin-top: rem-calc(24);
-
-      li {
-        padding-left: rem-calc(16);
-        position: relative;
-        margin-bottom: rem-calc(24);
-
-        &:before {
-          display: block;
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 2px;
-          background-color: $blue;
-          margin: 0;
-          padding: 0;
-        }
-
-        .title {
-          @extend .p;
-          text-transform: uppercase;
-          margin-bottom: rem-calc(8);
-          font-weight: bold;
-          font-size: rem-calc(14);
-        }
-
-        .desc {
-          @extend .p;
-          margin-bottom: 0;
-          color: rgba($white, 0.65);
-          font-size: rem-calc(14);
-        }
       }
     }
   }

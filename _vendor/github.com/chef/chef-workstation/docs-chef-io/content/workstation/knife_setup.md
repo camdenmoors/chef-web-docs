@@ -13,26 +13,13 @@ aliases = ["/knife_setup.html", "/knife_setup/"]
     parent = "chef_workstation/chef_workstation_tools/knife"
     weight = 20
 +++
+<!-- markdownlint-disable-file MD036 -->
 
 knife is a command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. The knife command line tool must be configured to communicate with the Chef Infra Server as well as any other infrastructure within your organization.
 
-The first time you set up Chef Infra, you need to manually create the directory for important Chef Infra files, such as `config.rb`.
+To configure knife to communicate with Chef Infra Server for the first time run `knife configure` to create a Chef Infra credentials file at `~/.chef/credentials`.
 
-We recommend setting up knife to use profiles. Knife profiles let you use knife with more than one Chef Infra Server and with more than one organization on a Chef Infra Server.
-
-To use knife profiles, the first time you set up your workstation enter:
-
-```bash
-mkdir ~/.chef
-touch ~/.chef/credentials
-```
-
-```powershell
-New-Item -Path "c:\" -Name ".chef" -ItemType "directory"
-New-Item -ItemType "file" -Path "c:\.chef\credentials"
-```
-
-Previous Chef Infra setups recommended setting up knife with a `config.rb` file. Configuring knife with `config.rb` is still valid, but only for working on one Chef Infra Server with one Chef Infra Server organization.
+Previous Chef Infra setups recommended setting up knife with a `config.rb` file. Configuring knife with `config.rb` is still valid, but only for working with a single Chef Infra Server with a single Chef Infra Server organization.
 
 ```bash
 mkdir ~/.chef
@@ -52,7 +39,7 @@ Knife profiles make switching knife between Chef Infra Servers or between organi
 
 Set up knife profiles by adding them to the `.chef/credentials` file in your home directory on your workstation. The `credentials` file is TOML formatted. Each profile is listed as a separate 'table' name of your choice, and is followed by `key = value` pairs. The keys correspond to any setting permitted in the [config.rb](/workstation/config_rb/) file.
 
-File paths, such as `client_key` or `validator_key`, are relative to `~/.chef` unless you provide absolute path. Identifiy clients with `client_name` (preferred) or `node_name`.
+File paths, such as `client_key` or `validator_key`, are relative to `~/.chef` unless you provide absolute path. Identify clients with `client_name` (preferred) or `node_name`.
 
 Store credentials for use with target mode (`chef-client --target switch.example.org`) as a separate profile in the credentials file. Use the DNS name of the target as the profile name and surrounded by single
 quotes when the name contains a period. For example:
@@ -112,7 +99,7 @@ List your profiles with the `knife config list-profiles` command.
 
 For example:
 
-```
+```bash
 knife config list-profiles
 ```
 
@@ -164,7 +151,7 @@ In a script for Microsoft Windows, use: `%USERPROFILE%\chef-repo\.chef`.
 
 ### config.rb Configuration Within a Chef Repository
 
-Use <span class="title-ref">knife configure</span> command to generate your initial `config.rb` file in your home directory.
+Use `knife configure` command to generate your initial `config.rb` file in your home directory.
 See [knife configure](/workstation/knife_configure/) for details.
 
 ## Setting Your Text Editor
@@ -237,4 +224,5 @@ knife[:editor] = '"C:\Program Files (x86)\vim\vim74\gvim.exe"'
 ```
 
 ### Using Quotes
+
  The text editor command cannot include spaces that are not properly wrapped in quotes. The command can be entered with double quotes (" ") or single quotes (' '), but this should be done consistently as shown in the examples above.

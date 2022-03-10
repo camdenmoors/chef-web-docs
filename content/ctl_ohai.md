@@ -9,7 +9,7 @@ aliases = ["/ctl_ohai.html"]
 [menu]
   [menu.infra]
     title = "ohai (executable)"
-    identifier = "chef_infra/features/ohai/ctl_ohai.md ohai (executable)"
+    identifier = "chef_infra/features/ohai/ctl_ohai.md ohai Commands"
     parent = "chef_infra/features/ohai"
     weight = 20
 +++
@@ -24,7 +24,30 @@ aliases = ["/ctl_ohai.html"]
 
 The following examples show how to use the Ohai command-line tool:
 
-**Run a plugin independently of a Chef Infra Client run**
+### Query for a specific attribute
+
+Pass an attribute as an argument to `ohai` to get the value of that attribute. For example:
+
+```bash
+ohai os
+```
+
+This fetches the value of Chef Infra's node data at `node['os']` and returns something like:
+
+```javascript
+[
+  "linux"
+]
+```
+
+To query for an attribute deeper in the tree, use a forward slash (`/`) as a
+delimiter. For example, to query for free memory, run:
+
+```bash
+ohai memory/free
+```
+
+### Run a plugin independently of a Chef Infra Client run
 
 An Ohai plugin can be run independently of a Chef Infra Client run.
 First, ensure that the plugin is located in the `/plugins` directory and

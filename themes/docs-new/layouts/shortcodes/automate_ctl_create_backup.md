@@ -36,10 +36,8 @@ current time will be used.
 <div class="admonition-warning-text">
 
 In rare circumstances, jobs that are running at the time of backup
-creation may be left in an unrecoverable state. For this reason, it's
+creation may be left in an unrecoverable state. For this reason, it is
 recommended to take a backup when no critical jobs are running.
-
-
 
 </div>
 
@@ -54,8 +52,6 @@ recommended to take a backup when no critical jobs are running.
 `create-backup` should be run outside of root-only directories like
 `/root`, as it tries to chpst to the user chef-pgsql. This user will
 have problems running with a current working directory owned by root.
-
-
 
 </div>
 

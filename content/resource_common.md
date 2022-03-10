@@ -9,10 +9,11 @@ aliases = ["/resource_common.html"]
 [menu]
   [menu.infra]
     title = "Common Resource Functionality"
-    identifier = "chef_infra/cookbook_reference/resources/resource_common.md Common Resource Functionality"
-    parent = "chef_infra/cookbook_reference/resources"
-    weight = 20
+    identifier = "chef_infra/resources/resource_common.md Common Resource Functionality"
+    parent = "chef_infra/resources"
+    weight = 30
 +++
+<!-- markdownlint-disable-file MD036 -->
 
 All resources (including custom resources) share a set of common
 actions, properties, conditional executions, notifications, and relative
@@ -42,9 +43,9 @@ The following examples show how to use common properties in a recipe.
 
 {{% resource_package_use_ignore_failure_attribute %}}
 
-**Use the retries common property**
+**Use the retries and retry_delay common properties**
 
-{{% resource_service_use_supports_attribute %}}
+{{% resource_service_use_retries_properties %}}
 
 ## Guards
 
@@ -180,7 +181,7 @@ ruby_block 'remove ntp::undo from run list' do
 end
 ```
 
-**Re-register ASP.Net if it's already installed**
+**Re-register ASP.Net if it is already installed**
 
 The following example shows how to use `only_if` to ensure that Chef
 Infra Client will attempt to register ASP.NET only if the executable is
@@ -236,7 +237,7 @@ end
 
 {{% resources_common_notification_notifies_syntax %}}
 
-Changed in Chef Client 12.6 to use `:before` timer with the `notifies`
+Changed in Chef Infra Client 12.6 to use `:before` timer with the `notifies`
 and `subscribes` properties to specify that the action on a notified
 resource should be run before processing the resource block in which the
 notification is located.

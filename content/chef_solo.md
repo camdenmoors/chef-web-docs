@@ -18,8 +18,8 @@ aliases = ["/chef_solo.html"]
 
 chef-solo supports two locations from which cookbooks can be run:
 
--   A local directory.
--   A URL at which a tar.gz archive is located.
+- A local directory.
+- A URL at which a tar.gz archive is located.
 
 Using a tar.gz archive is the more common approach, but requires that
 cookbooks be added to an archive. For example:
@@ -31,12 +31,14 @@ tar zcvf chef-solo.tar.gz ./cookbooks
 If multiple cookbook directories are being used, chef-solo expects the
 tar.gz archive to have a directory structure similar to the following:
 
-    cookbooks/
-      |---- cbname1/
-        |--attributes/ ... etc
-      ...
-      |---- cbname2/
-        |--attributes/
+```text
+cookbooks/
+  |---- cbname1/
+    |--attributes/ ... etc
+  ...
+  |---- cbname2/
+    |--attributes/
+```
 
 The `cookbook_path` variable in the solo.rb file must include both
 directories. For example:
@@ -55,7 +57,7 @@ Unlike Chef Infra Client, where the node object is stored on the Chef
 Infra Server, chef-solo stores its node objects as JSON files on local
 disk. By default, chef-solo stores these files in a `nodes` folder in
 the same directory as your `cookbooks` directory. You can control the
-location of this directory via the `node_path` value in your
+location of this directory using the `node_path` value in your
 configuration file.
 
 ## Attributes

@@ -13,6 +13,7 @@ aliases = ["/config_rb.html", "/config_rb_knife.html", "/config_rb/"]
     parent = "chef_workstation/chef_workstation_tools/knife"
     weight = 40
 +++
+<!-- markdownlint-disable-file MD007 -->
 
 {{< warning >}}
 
@@ -97,7 +98,7 @@ This configuration file has the following settings:
   ```
 
 `data_bag_encrypt_version`
-: The minimum required version of data bag encryption. Possible values: `1` or `2`. When all of the machines in an organization are running Chef Client 11.6 (or higher), it is recommended that this value be set to `2`. For example:
+: The minimum required version of data bag encryption. Possible values: `1` or `2`. When all of the machines in an organization are running Chef Infra Client 11.6 (or higher), it is recommended that this value be set to `2`. For example:
 
   ``` ruby
   data_bag_encrypt_version 2
@@ -111,6 +112,7 @@ This configuration file has the following settings:
   - Red Hat Enterprise Linux
   - Oracle Enterprise Linux
   - CentOS
+  - Ubuntu (with Ubuntu Advantage subscription)
   - Windows
 
 `local_mode`
@@ -201,7 +203,7 @@ This configuration file has the following settings:
 : Sets the default value of `log_location` in the client.rb file of the node being bootstrapped. Possible values are `/path/to/log_location`, `STDOUT`, `STDERR`, `:win_evt` and `:syslog`. For example:
 
   ``` ruby
-  config_log_location "/path/to/log_location"   # Please make sure thatthe path exists
+  config_log_location "/path/to/log_location"   # Please make sure that the path exists
   ```
 
 ### Proxy Settings
@@ -331,18 +333,8 @@ Some organizations choose to have all data bags use the same secret and secret f
 `knife[:secret_file]`
 : The path to the file that contains the encryption key.
 
-### Ohai Settings (Not Recommended)
-
-Some settings are better left to Ohai, which gets the value at the start of a Chef Infra Client run:
-
-`knife[:server_name]`
-: Same as `node_name`. Recommended configuration is to allow Ohai to collect this value during each Chef Infra Client run.
-
-`node_name`
-: Same as `knife[:server_name]`. Recommended configuration is to allow Ohai to collect this value during each Chef Infra Client run.
-
 {{< warning >}}
 
-Review the full list of [optional settings](/workstation/config_rb_optional_settings/) that can be added to the `config.rb` file. Many of these optional settings should not be added to the `config.rb` file. The reasons for not adding them can vary. For example, using `--yes` as a default in the `config.rb` file causes knife to always assume that "Y" is the response to any prompt, which may lead to undesirable outcomes. Other settings, such as `--hide-healthy`(used only with the `knife status` subcommand) or `--bare-directories` (used only with the `knife list` subcommand) probably aren't used often enough (and in the same exact way) to justify adding them to the `config.rb` file. In general, if the optional settings are not listed on <span class="title-ref">the main </span><span class="title-ref">config.rb</span>[topic](/workstation/config_rb/), then add settings only after careful consideration. Do not use optional settings in a production environment until after the setting's performance has been validated in a safe testing environment.
+Review the full list of [optional settings](/workstation/config_rb_optional_settings/) that can be added to the `config.rb` file. Many of these optional settings should not be added to the `config.rb` file. The reasons for not adding them can vary. For example, using `--yes` as a default in the `config.rb` file causes knife to always assume that "Y" is the response to any prompt, which may lead to undesirable outcomes. Other settings, such as `--hide-healthy`(used only with the `knife status` subcommand) or `--bare-directories` (used only with the `knife list` subcommand) probably aren't used often enough (and in the same exact way) to justify adding them to the `config.rb` file. In general, if the optional settings are not listed on the main `config.rb` [page](/workstation/config_rb/), then add settings only after careful consideration. Do not use optional settings in a production environment until after the setting's performance has been validated in a safe testing environment.
 
 {{< /warning >}}

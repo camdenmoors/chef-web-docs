@@ -8,11 +8,11 @@ product = ["client", "server"]
 [menu]
   [menu.infra]
     title = "Nodes"
-    identifier = "chef_infra/concepts/nodes.md Nodes"
-    parent = "chef_infra/concepts"
-    weight = 60
+    identifier = "chef_infra/overview/nodes.md Nodes"
+    parent = "chef_infra/overview"
+    weight = 30
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 {{% node %}}
 
 {{% node_types %}}
@@ -50,7 +50,9 @@ the Chef Infra Server. The name of each node must be unique within an
 organization, but otherwise can be any string that matches the following
 regular expression:
 
-    /^[\-[:alnum:]_:.]+$/
+```re
+ /^[\-[:alnum:]_:.]+$/
+```
 
 The name of a node can be obtained from the `node_name` attribute in the
 client.rb file or by allowing Ohai to collect this data during a Chef
@@ -99,4 +101,4 @@ You can manage nodes directly using Knife, Chef Automate, or by using command-li
 - [Knife](/workstation/knife/) can be used to create, edit, view, list, tag, and delete nodes.
 - Knife plug-ins can be used to create, edit, and manage nodes that are located on cloud providers.
 - Chef Infra Client can be used to manage node data using the command line and JSON files. Each JSON file contains a hash, the elements of which are added as node attributes. In addition, the `run_list` setting allows roles and/or recipes to be added to the node.
-- The command line can also be used to edit JSON files and files that are related to third-party services, such as Amazon EC2, where the JSON files can contain per-instance metadata that is stored in a file on-disk and then read by Chef Infra Client as required.
+- The command line can also be used to edit JSON files and files that are related to third-party services, such as Amazon EC2, where the JSON files can contain metadata fore each instance that is stored in a file on-disk and then read by Chef Infra Client as required.

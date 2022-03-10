@@ -4,8 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 robots = "noindex"
-
-
+sitemapExclude = true
 aliases = "/deprecations_verify_file.html"
 +++
 
@@ -14,8 +13,8 @@ that is expanded to the path of the file to be verified. Previously, it
 was possible to use `{file}` as the variable, but that is now
 deprecated.
 
-The `{file}` expansion was deprecated in Chef Client 12.5, and will be
-removed in Chef Client 13.
+The `{file}` expansion was deprecated in Chef Infra Client 12.5, and will be
+removed in Chef Infra Client 13.
 
 ## Example
 

@@ -197,12 +197,6 @@ newer versions or products.
 <td>April 30, 2022</td>
 </tr>
 <tr>
-<td>Chef Infra Server</td>
-<td>13.x</td>
-<td>Deprecated</td>
-<td>June 30, 2021</td>
-</tr>
-<tr>
 <td>Chef Manage</td>
 <td>2.5.x+</td>
 <td>Deprecated</td>
@@ -212,13 +206,6 @@ newer versions or products.
 </table>
 
 ## End of Life (EOL) Products
-
-{{< note >}}
-
-Chef Compliance Server, which reached EOL status in 2018, should not be
-confused with the modern [Chef Compliance offering](/compliance/).
-
-{{< /note >}}
 
 <table>
 <colgroup>
@@ -268,9 +255,9 @@ confused with the modern [Chef Compliance offering](/compliance/).
 </tr>
 <tr>
 <td>Chef Infra Server</td>
-<td>12.x</td>
+<td>13.x</td>
 <td>EOL</td>
-<td>December 31, 2020</td>
+<td>June 30, 2021</td>
 </tr>
 <tr>
 <td>Chef InSpec</td>

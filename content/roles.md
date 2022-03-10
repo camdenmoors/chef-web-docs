@@ -8,11 +8,11 @@ product = ["client", "server"]
 [menu]
   [menu.infra]
     title = "Roles"
-    identifier = "chef_infra/concepts/policy/roles.md Roles"
-    parent = "chef_infra/concepts/policy"
+    identifier = "chef_infra/policyfiles/roles.md Roles"
+    parent = "chef_infra/policyfiles"
     weight = 70
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 {{% role %}}
 
 ## Role Attributes
@@ -98,7 +98,7 @@ Domain-specific Ruby attributes:
 </tr>
 <tr>
 <td><p><code>name</code></p></td>
-<td><p>A unique name within the organization. Each name must be made up of letters (upper- and lower-case), numbers, underscores, and hyphens: [A-Z][a-z][0-9] and [_-]. Spaces are not allowed. For example:</p>
+<td><p>A unique name within the organization. Each name must be made up of letters (uppercase and lowercase), numbers, underscores, and hyphens: [A-Z][a-z][0-9] and [_-]. Spaces are not allowed. For example:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>name <span class="st">&#39;dev01-24&#39;</span></span></code></pre></div></td>
 </tr>
 <tr>
@@ -238,22 +238,22 @@ The JSON format has two additional settings:
 
 There are several ways to manage roles:
 
--   knife can be used to create, edit, view, list, tag, and delete
+- knife can be used to create, edit, view, list, tag, and delete
     roles.
--   The Chef Infra Client can be used to manage role data using the
+- The Chef Infra Client can be used to manage role data using the
     command line and JSON files (that contain a hash, the elements of
     which are added as role attributes). In addition, the `run_list`
     setting allows roles and/or recipes to be added to the role.
--   The open source Chef Infra Server can be used to manage role data
+- The open source Chef Infra Server can be used to manage role data
     using the command line and JSON files (that contain a hash, the
     elements of which are added as role attributes). In addition, the
     `run_list` setting allows roles and/or recipes to be added to the
     role.
--   The Chef Infra Server API can be used to create and manage roles
+- The Chef Infra Server API can be used to create and manage roles
     directly, although using knife directly is the most common way to manage roles.
--   The command line can also be used with JSON files and third-party
+- The command line can also be used with JSON files and third-party
     services, such as Amazon EC2, where the JSON files can contain
-    per-instance metadata stored in a file on-disk and then read by
+    metadata for each instance stored in a file on-disk and then read by
     chef-solo or Chef Infra Client as required.
 
 By creating and editing files using the Chef Language (Ruby) or JSON, you can dynamically generate role data. Roles created and edited
@@ -272,13 +272,10 @@ version source control can be challenging.
 If roles are created and managed using knife and then arbitrarily updated
 uploaded through JSON data, that action will overwrite the previous work with knife.
 It is strongly recommended to keep to one process and not switch back and forth.
-### Set Per-environment Run-lists
 
-A per-environment run-list is a run-list that is associated with a role
-and a specific environment. More than one environment can be specified
-in a role, but each specific environment may be associated with only one
-run-list. If a run-list is not specified, the default run-list will be
-used. For example:
+### Set Run-lists for Environments
+
+Associating a run-list with a role and a specific environment lets you use the run-list on different nodes that share the same environment. More than one environment can be specified in a role, but each specific environment may be associated with only one run-list. If a run-list is not specified, the default run-list will be used. For example:
 
 ```javascript
 {
@@ -302,12 +299,12 @@ used. For example:
 
 where:
 
--   `webserver` is the name of the role
--   `env_run_lists` is a hash of per-environment run-lists for
+- `webserver` is the name of the role
+- `env_run_lists` is a hash of environment run-lists for
     `production`, `preprod`, `test`, and `dev`
--   `production` and `preprod` use the default run-list because they do
-    not have a per-environment run-list
--   `run_list` defines the default run-list
+- `production` and `preprod` use the default run-list because they do
+    not have a shared environment run-list
+- `run_list` defines the default run-list
 
 ### Delete from Run-list
 

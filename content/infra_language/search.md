@@ -7,9 +7,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.infra]
     title = "Search"
-    identifier = "chef_infra/cookbook_reference/infra_language/search.md Search"
-    parent = "chef_infra/cookbook_reference/infra_language"
-    weight = 50
+    identifier = "chef_infra/infra_language/search.md Search"
+    parent = "chef_infra/infra_language"
 +++
 
 ## search
@@ -52,39 +51,39 @@ end
 
 {{% search_query_syntax %}}
 
-**Keys**
+#### Keys
 
 {{% search_key %}}
 
-**Nested Fields**
+#### Nested Fields
 
 {{% search_key_nested %}}
 
-**Patterns**
+#### Patterns
 
 {{% search_pattern %}}
 
-**Exact Match**
+#### Exact Match
 
 {{% search_pattern_exact %}}
 
-**Wildcard Match**
+#### Wildcard Match
 
 {{% search_pattern_wildcard %}}
 
-**Range Match**
+#### Range Match
 
 {{% search_pattern_range %}}
 
-**Fuzzy Match**
+#### Fuzzy Match
 
 {{% search_pattern_fuzzy %}}
 
-**Operators**
+#### Operators
 
 {{% search_boolean_operators %}}
 
-**Special Characters**
+#### Special Characters
 
 {{% search_special_characters %}}
 
@@ -92,6 +91,6 @@ end
 
 The following examples show how the `search` method can be used in a recipe.
 
-**Use the search helper to find users**
+#### Use the search helper to find users
 
 {{< readFile_shortcode file="resource_execute_use_search_dsl_method.md" >}}

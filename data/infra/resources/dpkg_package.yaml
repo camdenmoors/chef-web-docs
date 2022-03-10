@@ -42,16 +42,16 @@ syntax_full_properties_list:
 - "`options`, `package_name`, `response_file`, `response_file_variables`, `source`,
   `timeout`, and `version` are the properties available to this resource."
 actions_list:
-  :install:
-    markdown: Default. Install a package. If a version is specified, install the specified
-      version of the package.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :install:
+    markdown: Install a package. If a version is specified, install the specified
+      version of the package. (default)
+  :remove:
+    markdown: Remove a package.
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
-  :remove:
-    markdown: Remove a package.
 properties_list:
 - property: options
   ruby_type: String, Array
@@ -72,6 +72,7 @@ properties_list:
 - property: response_file_variables
   ruby_type: Hash
   required: false
+  default_value: "{}"
   description_list:
   - markdown: A Hash of response file variables in the form of {'VARIABLE' => 'VALUE'}.
 - property: source

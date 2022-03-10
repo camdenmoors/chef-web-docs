@@ -1,5 +1,5 @@
 +++
-title = "An Overview of Chef Infra"
+title = "Chef Infra Overview"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/chef_overview.html"]
@@ -8,23 +8,24 @@ product = ["client", "server", "workstation"]
 [menu]
   [menu.infra]
     title = "Chef Infra Overview"
-    identifier = "chef_infra/getting_started/chef_overview.md Chef Infra Overview"
-    parent = "chef_infra/getting_started"
+    identifier = "chef_infra/overview/chef_overview.md Chef Infra Overview"
+    parent = "chef_infra/overview"
     weight = 10
 +++
+<!-- markdownlint-disable-file MD033 -->
 
 {{% chef %}}
 
--   **Chef Workstation** is the location where users interact with Chef
+- **Chef Workstation** is the location where users interact with Chef
     Infra. With Chef Workstation, users can author and test
     [cookbooks](/cookbooks/) using tools such as [Test
     Kitchen](/workstation/kitchen/) and interact with the Chef Infra Server
     using the [knife](/workstation/knife/) and [chef](/ctl_chef/) command
     line tools.
--   **Chef Infra Client nodes** are the machines that are managed by
-    Chef Infra. The Chef Infra Client is installed on each node and is
-    used to configure the node to its desired state.
--   **Chef Infra Server** acts as [a hub for configuration
+- **Chef Infra Client** Chef Infra Client runs on systems that are managed by
+    Chef Infra. The Chef Infra Client executes on a schedule to configure a system to
+    the desired state.
+- **Chef Infra Server** acts as [a hub for configuration
     data](/server/). Chef Infra Server stores cookbooks,
     the policies that are applied to nodes, and metadata that describes
     each registered node that is being managed by Chef. Nodes use the
@@ -80,7 +81,7 @@ Chef Infra has the following major components:
 <tr>
 <td><p><img src="/images/icon_chef_server.svg" class="align-center" width="130" alt="image" /></p></td>
 <td><p>The Chef Infra Server acts as a hub of information. Cookbooks and policy settings are uploaded to the Chef Infra Server by users from workstations.</p>
-<p>The Chef Infra Client accesses the Chef Infra Server from the node on which it's installed to get configuration data, performs searches of historical Chef Infra Client run data, and then pulls down the necessary configuration data. After a Chef Infra Client run is finished, the Chef Infra Client uploads updated run data to the Chef Infra Server.</p></td>
+<p>The Chef Infra Client accesses the Chef Infra Server from the node on which it is installed to get configuration data, performs searches of historical Chef Infra Client run data, and then pulls down the necessary configuration data. After a Chef Infra Client run is finished, the Chef Infra Client uploads updated run data to the Chef Infra Server.</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_chef_supermarket.svg" class="align-center" width="130" alt="image" /></p></td>
@@ -209,13 +210,13 @@ Cookbooks are comprised of the following components:
 <tr>
 <td><p><img src="/images/icon_cookbook_recipes.svg" class="align-center" width="130" alt="image" /></p></td>
 <td><p>{{< readFile_shortcode file="cookbooks_recipe.md" >}}</p>
-<p>The Chef Infra Client will run a recipe only when asked. When the Chef Infra Client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, the Chef Infra Client won't change anything.</p>
+<p>The Chef Infra Client will run a recipe only when asked. When the Chef Infra Client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, the Chef Infra Client will not change anything.</p>
 <p>{{< readFile_shortcode file="infra_lang_summary.md" >}}</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_resources.svg" class="align-center" width="130" alt="image" /></p></td>
 <td><p>{{< readFile_shortcode file="resources_common.md" >}}</p>
-<p>Chef has <a href="/resources/">many built-in resources</a> that cover all of the most common actions across all of the most common platforms. You can <a href="/custom_resources/">build your own resources</a> to handle any situation that isn't covered by a built-in resource.</p></td>
+<p>Chef has <a href="/resources/">many built-in resources</a> that cover all of the most common actions across all of the most common platforms. You can <a href="/custom_resources/">build your own resources</a> to handle any situation that is not covered by a built-in resource.</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_templates.svg" class="align-center" width="130" alt="image" /></p></td>

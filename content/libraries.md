@@ -9,17 +9,17 @@ aliases = ["/libraries.html"]
     title = "Libraries"
     identifier = "chef_infra/cookbook_reference/libraries.md Libraries"
     parent = "chef_infra/cookbook_reference"
-    weight = 40
+    weight = 50
 +++
 
 {{% libraries_summary %}}
 
 Use a library to:
 
--   Connect to a database
--   Fetch secrets from a cloud provider
--   Talk to an LDAP provider
--   Do anything that can be done with Ruby
+- Connect to a database
+- Fetch secrets from a cloud provider
+- Talk to an LDAP provider
+- Do anything that can be done with Ruby
 
 ## Syntax
 

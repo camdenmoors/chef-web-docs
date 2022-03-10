@@ -8,10 +8,14 @@ assets:
 clean_all:
 	pushd themes/docs-new && make clean_all && popd
 	rm -rf resources/
+	rm -rf public/
 	hugo mod clean
 
 serve: assets
 	hugo server --buildDrafts --noHTTPCache --buildFuture
+
+production: assets
+	hugo server --buildDrafts --noHTTPCache --buildFuture --environment production
 
 serve_ignore_vendor: assets
 	hugo server --buildDrafts --noHTTPCache --buildFuture --ignoreVendorPaths github.com/**
@@ -32,18 +36,19 @@ resource_files:
 	done
 	hugo new -k all_the_resources content/resources/_index.md ;
 
-# Generates blank Cookstyle Cop pages, one for each yaml file in
-# _vendor/github.com/chef/cookstyle/docs-chef-io/data/cookstyle directory
-# And an index page that lists all of the cops.
-cookstyle_cops_pages:
-	rm -rf content/workstation/cookstyle/*
-	dataDir=_vendor/github.com/chef/cookstyle/docs-chef-io/data/cookstyle; \
+
+# Verifies that all Cookstyle MD pages exist
+verify_cookstyle_pages:
+	dataDir=generated/_vendor/github.com/chef/cookstyle/docs-chef-io/assets/cookstyle; \
+	markdownDir=generated/generated_content/workstation/cookstyle; \
 	for f in $$(ls $${dataDir}); \
-		do echo $${f}; \
-		file=$${f%.yml}; \
-		file=$${file#cops_}; \
-		if [ $${file} != .gitkeep ]; then \
-			hugo new -k cookstyle_cop content/workstation/cookstyle/$${file}.md; \
-		fi ; \
-	done
-	hugo new -k cookstyle_cops_all content/workstation/cookstyle/cops.md ;
+		do mdFile="$${f/.yml/.md}"; \
+		mdFilePath="$${markdownDir}/$${mdFile/cops_/}"; \
+		if test ! -f "$${mdFilePath}"; then \
+			echo "$${mdFilePath} does not exist."; \
+		fi; \
+	done; \
+	if test ! -f "generated/generated_content/workstation/cookstyle/cops.md"; then \
+			echo "generated/generated_content/workstation/cookstyle/cops.md does not exist."; \
+	fi; \
+

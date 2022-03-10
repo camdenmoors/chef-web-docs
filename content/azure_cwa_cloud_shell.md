@@ -9,8 +9,8 @@ product = ["client", "workstation"]
 [menu]
   [menu.infra]
     title = "Chef Workstation in Azure Cloud Shell"
-    identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_cwa_cloud_shell.md Chef Workstation in Azure Cloud Shell"
-    parent = "chef_infra/getting_started/chef_on_azure_guide"
+    identifier = "chef_infra/integrations/azure/azure_cwa_cloud_shell.md Chef Workstation in Azure Cloud Shell"
+    parent = "chef_infra/integrations/azure"
     weight = 20
 +++
 
@@ -37,7 +37,7 @@ need for a local shell.
 ## Azure Cloud Shell Installation
 
 Ensure you have an accessible Azure Cloud Shell instance. You may need
-to create a storage account to use Azure Cloud Shell if you haven't used
+to create a storage account to use Azure Cloud Shell if you have not used
 it before in this tenant. For more information on accessing, setting up,
 and using Azure Cloud Shell, see the [Cloud Shell
 Documentation](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart).

@@ -4,8 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 robots = "noindex"
-
-
+sitemapExclude = true
 aliases = "/deprecations_launchd_hash_property.html"
 +++
 
@@ -20,11 +19,11 @@ the launchd property list. However, `hash` is an already-existing Ruby
 method.
 
 A deprecation warning is logged when the `hash` property is used. In
-Chef Client 13, this will raise an exception and your Chef run will
+Chef Infra Client 13, this will raise an exception and your Chef run will
 fail.
 
 The [Cookstyle](/workstation/cookstyle/) cop
-[ChefDeprecations/LaunchdDeprecatedHashProperty](https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationslaunchddeprecatedhashproperty)
+[ChefDeprecations/LaunchdDeprecatedHashProperty](https://github.com/chef/cookstyle/blob/main/docs/cops_chefdeprecations.md#chefdeprecationslaunchddeprecatedhashproperty)
 has been introduced to detect and autocorrect this deprecation.
 
 ## Remediation

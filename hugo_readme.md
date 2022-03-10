@@ -1,3 +1,4 @@
+<!-- markdownlint-disable-file MD002 -->
 # Configuring Hugo
 
 ## Edit on GitHub Links
@@ -35,7 +36,7 @@ versions that Hugo should build. Each `versions` setting
 is a list with the major and minor version numbers separated by an underscore.
 For example:
 
-```
+```toml
 [params.chef-server]
 versions = ["14_0", "13_2"]
 [params.chef]
@@ -62,7 +63,7 @@ documentation for multiple versions of a product. They are:
 
 Below is an example of what that file structure should look like.
 
-```
+```none
 content
   |- <PRODUCT>
     |- <page_name>.md
@@ -123,9 +124,7 @@ All other page configuration metadata (menu configuration, aliases, page title, 
 should be included in the frontmatter as it normally exists in other pages. The
 rest of the page should be blank.
 
-**Note**
-
-Pages within a product directory don't have to be versioned. For example,
+**Note**: Pages within a product directory do not have to be versioned. For example,
 a product introduction would contain content that's relevant to all versions of a product.
 Hugo will render the content in a page without the `version_docs_product` parameter
 like any other un-versioned page.
@@ -155,7 +154,7 @@ matching pages with the exact same file name in each of the version subdirectori
 
 These versioned pages contain the text that will be added to the parent page.
 
-The pages don't require any frontmatter, although adding `title` and `version` parameters
+The pages do not require any frontmatter, although adding `title` and `version` parameters
 can be helpful if you are editing multiple pages at the same time.
 
 #### Reusable Text

@@ -13,6 +13,7 @@ aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_window
     parent = "chef_workstation"
     weight = 20
 +++
+<!-- markdownlint-disable-file MD033 -->
 
 {{% chef_workstation %}}
 
@@ -34,15 +35,15 @@ Supported Host Operating Systems:
 <tbody>
 <tr class="even">
 <td>Amazon Linux</td>
-<td>2.x</td>
+<td>2</td>
 </tr>
 <tr class="odd">
 <td>Apple macOS</td>
-<td>10.14, 10.15, 11.0</td>
+<td>10.15, 11, 12</td>
 </tr>
 <tr class="even">
 <td>Microsoft Windows</td>
-<td>10, Server 2012, Server 2012 R2, Server 2016, Server 2019</td>
+<td>10, 11, Server 2012, Server 2012 R2, Server 2016, Server 2019, Server 2022</td>
 </tr>
 <tr class="odd">
 <td>Red Hat Enterprise Linux / CentOS</td>
@@ -50,11 +51,11 @@ Supported Host Operating Systems:
 </tr>
 <tr class="even">
 <td>Ubuntu</td>
-<td>18.04, 20.04</td>
+<td>16.04, 18.04, 20.04</td>
 </tr>
 <tr class="odd">
 <td>Debian</td>
-<td>9.x, 10.x</td>
+<td>9, 10, 11</td>
 </tr>
 </tbody>
 </table>
@@ -63,21 +64,13 @@ Supported Host Operating Systems:
 
 Minimum system requirements:
 
-- RAM: 2GB
-- Disk: 4GB
-- Running minimum settings may limit your ability to take advantage of Chef Workstation tools such as Test Kitchen which creates and manages virtualized test environments.
-
-Recommended system requirements:
-
 - RAM: 4GB
-- Disk 8GB
+- Disk: 8GB
+- Additional memory and storage space may be necessary to take advantage of Chef Workstation tools such as Test Kitchen which creates and manages virtualized test environments.
 
-### Chef Workstation App Requirements
+Additional Chef Workstation App Requirements:
 
-- Windows: No additional requirements
-- Mac: No additional requirements
-- Linux: You must have a graphical window manager running with support for system tray icons.
-  - On some distributions you may need to install additional libraries. After you install the Chef Workstation package from the terminal, the post-install message will tell you which, if any, additional libraries are required to run the Chef Workstation App.
+- On Linux you must have a graphical window manager running with support for system tray icons. For some distributions you may also need to install additional libraries. After you install the Chef Workstation package from the terminal, the post-install message will tell you which, if any, additional libraries are required to run the Chef Workstation App.
 
 ## Installation
 
@@ -85,12 +78,12 @@ The Chef Workstation installer must run as a privileged user.
 
 Chef Workstation installs to `/opt/chef-workstation/` on macOS / Linux
 and `C:\opscode\chef-workstation\` on Windows. These file locations
-should help avoid interference between these components and other
+help avoid interference between these components and other
 applications that may be running on the target machine.
 
 ### macOS Install
 
-1. Visit the [Chef Workstation downloads page](https://downloads.chef.io/tools/workstation#mac_os_x) and select the appropriate package for your macOS version. Select on the **Download** button.
+1. Visit the [Chef Workstation downloads page](https://www.chef.io/downloads/tools/workstation?os=mac_os_x) and select the appropriate package for your macOS version. Select on the **Download** button.
 1. Follow the steps to accept the license and install Chef Workstation.
 
 Alternately, install Chef Workstation using the [Homebrew](https://brew.sh/) package manager:
@@ -99,7 +92,7 @@ Alternately, install Chef Workstation using the [Homebrew](https://brew.sh/) pac
 
 ### Windows Install
 
-1. Visit the [Chef Workstation downloads page](https://downloads.chef.io/tools/workstation#windows) and select the appropriate package for your Windows version. Click on the **Download** button.
+1. Visit the [Chef Workstation downloads page](https://www.chef.io/downloads/tools/workstation?os=windows) and select the appropriate package for your Windows version. Click on the **Download** button.
 1. Follow the steps to accept the license and install Chef Workstation. You will have the option to change your install location; by default the installer uses the `C:\opscode\chef-workstation\` directory.
 1. **Optional:** Set the default shell. On Microsoft Windows it is strongly recommended to use Windows PowerShell instead of `cmd.exe`.
 
@@ -127,31 +120,31 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
 
 ### Linux
 
-1. Visit the [Chef Workstation downloads page](https://downloads.chef.io/products/workstation) and download the appropriate package for your distribution:
+1. Visit the [Chef Workstation downloads page](https://www.chef.io/downloads/tools/workstation) and download the appropriate package for your distribution:
 
     - Red Hat Enterprise Linux
 
       ```bash
-      wget https://packages.chef.io/files/stable/chef-workstation/21.2.278/el/8/chef-workstation-21.2.278-1.el7.x86_64.rpm
+      wget https://packages.chef.io/files/stable/chef-workstation/21.10.640/el/8/chef-workstation-21.10.640-1.el8.x86_64.rpm
       ```
 
     - Debian/Ubuntu
 
       ``` bash
-      wget https://packages.chef.io/files/stable/chef-workstation/21.2.278/ubuntu/20.04/chef-workstation_21.2.278-1_amd64.deb
+      wget https://packages.chef.io/files/stable/chef-workstation/21.10.640/ubuntu/20.04/chef-workstation_21.10.640-1_amd64.deb
       ```
 
 1. Use your distribution's package manager to install Chef Workstation:
    - Red Hat Enterprise Linux:
 
         ``` bash
-        yum localinstall chef-workstation-21.2.278-1.el8.x86_64.rpm
+        yum localinstall chef-workstation-21.10.640-1.el8.x86_64.rpm
         ```
 
    - Debian/Ubuntu:
 
         ``` bash
-        dpkg -i chef-workstation_21.2.278-1_amd64.deb
+        dpkg -i chef-workstation_21.10.640-1_amd64.deb
         ```
 
 ## Verify the Installation
@@ -165,13 +158,13 @@ chef -v
 Which returns the versions of all installed Chef tools:
 
 ``` shell
-Chef Workstation version: 21.2.303
-Chef Infra Client version: 16.10.17
-Chef InSpec version: 4.26.13
-Chef CLI version: 3.1.1
-Chef Habitat version: 1.6.181
-Test Kitchen version: 2.10.0
-Cookstyle version: 7.8.3
+Chef Workstation version: 21.10.640
+Chef Infra Client version: 17.6.18
+Chef InSpec version: 4.46.13
+Chef CLI version: 5.4.2
+Chef Habitat version: 1.6.351
+Test Kitchen version: 3.1.0
+Cookstyle version: 7.25.6
 ```
 
 ## Upgrading

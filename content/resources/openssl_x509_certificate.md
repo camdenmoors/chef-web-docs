@@ -10,10 +10,10 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "openssl_x509_certificate"
-    identifier = "chef_infra/cookbook_reference/resources/openssl_x509_certificate"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/openssl_x509_certificate"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the openssl_x509_certificate.yaml file in the data directory. -->
-<!-- To suggest a change, edit the https://github.com/chef/chef/blob/master/lib/chef/resource/openssl_x509_certificate.rb file
+<!-- To suggest a change, edit the https://github.com/chef/chef/blob/main/lib/chef/resource/openssl_x509_certificate.rb file
       and submit a pull request to the https://github.com/chef/chef repository. -->

@@ -8,14 +8,14 @@ product = ["client", "server"]
 [menu]
   [menu.infra]
     title = "Environments"
-    identifier = "chef_infra/concepts/policy/environments.md Environments"
-    parent = "chef_infra/concepts/policy"
+    identifier = "chef_infra/policyfiles/environments.md Environments"
+    parent = "chef_infra/policyfiles"
     weight = 60
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 {{% environment %}}
 
-## The _default Environment
+## The `_default` Environment
 
 Every Chef Infra Server organization must have at least one environment.
 Each organization starts out with a single `_default` environment. The
@@ -70,18 +70,18 @@ control the rollout of new cookbook releases through successive testing
 environments before releasing new cookbook versions into production
 environments. See the environment format examples below for the cookbook
 pinning syntax.
+
 ## Environment Formats
 
 Environments may be stored on disk (any in source control) in two
 formats:
 
--   As Ruby (i.e. a file that ends with `.rb`); this format is not
-    available when running Chef Infra Client in local mode
--   As JSON (i.e. a file that ends with `.json`)
+- As Ruby ( a file that ends with `.rb`); this format is not available when running Chef Infra Client in local mode
+- As JSON (a file that ends with `.json`)
 
 ### Chef Language
 
-Each environment is defined as a Ruby file (i.e. a file that ends with
+Each environment is defined as a Ruby file (a file that ends with
 `.rb`). Each environment file should contain the following
 domain-specific attributes:
 
@@ -126,7 +126,7 @@ domain-specific attributes:
 </tr>
 <tr>
 <td><p><code>name</code></p></td>
-<td><p>A unique name within the organization. Each name must be made up of letters (upper- and lower-case), numbers, underscores, and hyphens: [A-Z][a-z][0-9] and [_-]. Spaces are not allowed. For example:</p>
+<td><p>A unique name within the organization. Each name must be made up of letters (uppercase and lowercase), numbers, underscores, and hyphens: [A-Z][a-z][0-9] and [_-]. Spaces are not allowed. For example:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb7-1"><a href="#cb7-1"></a>name <span class="st">&#39;dev01-24&#39;</span></span></code></pre></div></td>
 </tr>
 <tr>
@@ -259,7 +259,7 @@ The JSON format has two additional settings:
 </tr>
 <tr>
 <td><code>json_class</code></td>
-<td>Always set this to <code>Chef::Environment</code>. Chef Infra Client uses this setting to auto-inflate an environment object. If objects are being rebuilt outside of Ruby, ignore it.</td>
+<td>Always set this to <code>Chef::Environment</code>. Chef Infra Client uses this setting to automatically inflate an environment object. If objects are being rebuilt outside of Ruby, ignore it.</td>
 </tr>
 </tbody>
 </table>
@@ -268,12 +268,12 @@ The JSON format has two additional settings:
 
 An environment can be created in four different ways:
 
--   Creating a Ruby file in the environments sub-directory of the
+- Creating a Ruby file in the environments sub-directory of the
     chef-repo and then pushing it to the Chef server
--   Creating a JSON file directly in the chef-repo and then pushing it
+- Creating a JSON file directly in the chef-repo and then pushing it
     to the Chef server
--   Using knife
--   Using the Chef Infra Server REST API
+- Using knife
+- Using the Chef Infra Server REST API
 
 Once an environment exists on the Chef Infra Server, a node can be
 associated with that environment using the `chef_environment` method.
@@ -282,9 +282,9 @@ associated with that environment using the `chef_environment` method.
 
 Once created, an environment can be managed in several ways:
 
--   By using knife and passing the `-E ENVIRONMENT_NAME` option with
+- By using knife and passing the `-E ENVIRONMENT_NAME` option with
     `knife cookbook upload`
--   By using Ruby or JSON files that are stored in a version source
+- By using Ruby or JSON files that are stored in a version source
     control system. These files are pushed to the Chef Infra Server
     using the `knife environment` subcommand and the `from file`
     argument. This approach allows environment data to be dynamically
@@ -319,7 +319,7 @@ node.chef_environment
 
 Values that are stored in a data bag are global to the organization and
 are available to any environment. There are two main strategies that can
-be used to store per-environment data within a data bag: by using a
+be used to store environment data within a data bag: by using a
 top-level key that corresponds to the environment or by using separate
 items for each environment.
 
@@ -348,9 +348,9 @@ bag_item[node.chef_environment]['some_other_key']
 The other approach is to use separate items for each environment.
 Depending on the amount of data, it may all fit nicely within a single
 item. If this is the case, then creating different items for each
-environment may be a simple approach to providing per-environment values
-within a data bag. However, this approach is more time-consuming and may
-not scale to very large environments or when the data must be stored in
+environment may be a simple approach to providing values
+within a data bag for each environment. However, this approach is more time-consuming and may
+not scale to large environments or when the data must be stored in
 many data bag items.
 
 ### Override Attributes in Roles
@@ -374,25 +374,25 @@ attribute_i_want = mything[node.chef_environment]
 
 A node is considered to be associated with an environment when the
 `chef_environment` attribute is set. The `chef_environment` attribute
-cannot be set with normal or override attributes (i.e. in a role)
+cannot be set with normal or override attributes (in a role)
 because it is actually a method. An environment may be set explicitly
 using the following methods:
 
--   By using the `knife edit` and `knife exec` subcommands
+- By using the `knife edit` and `knife exec` subcommands
 
--   By editing the `environment` configuration details in the client.rb
+- By editing the `environment` configuration details in the client.rb
     file, and then using `knife bootstrap -e environment_name` to
     bootstrap the changes to the specified environment
 
     {{< note spaces=4 >}}
 
-    After the environment has been set via bootstrap, the environment is
-    set in the client.rb file and may not be modified using the  `edit` argument of the `knife node`
+    After the environment has been set using bootstrap, the environment is
+    set in the client.rb file and may not be modified using the `edit` argument of the `knife node`
     subcommand.
 
     {{< /note >}}
 
--   By setting the `environment` configuration entry in the client.rb
+- By setting the `environment` configuration entry in the client.rb
     file ; when Chef Infra Client runs, it will pick up the value and
     then set the `chef_environment` attribute of the node
 

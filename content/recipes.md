@@ -241,11 +241,13 @@ A recipe must be assigned to a run-list using the appropriate name, as
 defined by the cookbook directory and namespace. For example, a cookbook
 directory has the following structure:
 
-    cookbooks/
-      apache2/
-        recipes/
-          default.rb
-          mod_ssl.rb
+```text
+cookbooks/
+  apache2/
+    recipes/
+      default.rb
+      mod_ssl.rb
+```
 
 There are two recipes: a default recipe (that has the same name as the
 cookbook) and a recipe named `mod_ssl`. The syntax that applies a recipe
@@ -320,7 +322,7 @@ sudo chef-solo -j /etc/chef/dna.json
 {{% search %}}
 
 The results of a search query can be loaded into a recipe. For example,
-a very simple search query (in a recipe) might look like this:
+a simple search query (in a recipe) might look like this:
 
 ```ruby
 search(:node, 'attribute:value')
@@ -352,12 +354,12 @@ Sometimes it may be necessary to stop processing a recipe and/or stop
 processing the entire Chef Infra Client run. There are a few ways to do
 this:
 
--   Use the `return` keyword to stop processing a recipe based on a
+- Use the `return` keyword to stop processing a recipe based on a
     condition, but continue processing a Chef Infra Client run
--   Use the `raise` keyword to stop a Chef Infra Client run by
+- Use the `raise` keyword to stop a Chef Infra Client run by
     triggering an unhandled exception
--   Use a `rescue` block in Ruby code
--   Use an [exception handler](/handlers/)
+- Use a `rescue` block in Ruby code
+- Use an [exception handler](/handlers/)
 
 The following sections show various approaches to ending a Chef Infra
 Client run.
@@ -382,7 +384,7 @@ end
 where `platform?('windows')` is the condition set on the `return`
 keyword. When the condition is met, stop processing the recipe. This
 approach is useful when there is no need to continue processing, such as
-when a package cannot be installed. In this situation, it's OK for a
+when a package cannot be installed. In this situation, it is OK for a
 recipe to stop processing.
 
 #### raise Keyword
@@ -422,8 +424,8 @@ unhandled exception during the execute phase. For example:
 ```ruby
 ruby_block "name" do
   block do
-    # Ruby code with a condition, e.g. if ::File.exist?(::File.join(path, "/tmp"))
-    raise "message"  # e.g. "Ordering issue with file path, expected foo"
+    # Ruby code with a condition, for example if ::File.exist?(::File.join(path, "/tmp"))
+    raise "message"  # for example "Ordering issue with file path, expected foo"
   end
 end
 ```
@@ -507,14 +509,14 @@ end
 
 where:
 
--   The **ruby_block** resource declares a `block` of Ruby code that is
+- The **ruby_block** resource declares a `block` of Ruby code that is
     run during the execution phase of a Chef Infra Client run
--   The `if` statement randomly chooses PHP or Perl, saving the choice
+- The `if` statement randomly chooses PHP or Perl, saving the choice
     to `node.run_state['scripting_language']`
--   When the **package** resource has to install the package for the
+- When the **package** resource has to install the package for the
     scripting language, it looks up the scripting language and uses the
     one defined in `node.run_state['scripting_language']`
--   `lazy {}` ensures that the **package** resource evaluates this
+- `lazy {}` ensures that the **package** resource evaluates this
     during the execution phase of a Chef Infra Client run (as opposed to
     during the compile phase)
 

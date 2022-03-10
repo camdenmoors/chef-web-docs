@@ -9,11 +9,11 @@ aliases = ["/ctl_chef_client.html"]
 [menu]
   [menu.infra]
     title = "chef-client (executable)"
-    identifier = "chef_infra/setup/nodes/ctl_chef_client.md chef-client (executable)"
-    parent = "chef_infra/setup/nodes"
-    weight = 30
+    identifier = "chef_infra/reference/ctl_chef_client.md chef-client Commands"
+    parent = "chef_infra/reference"
+    weight = 10
 +++
-
+<!-- markdownlint-disable-file MD036 MD046 -->
 {{% chef_client_summary %}}
 
 {{< note >}}
@@ -42,116 +42,77 @@ This command has the following options:
 
 `-A`, `--fatal-windows-admin-check`
 
-:   Cause a Chef Infra Client run to fail when the Chef Infra Client
-    does not have administrator privileges in Microsoft Windows.
+: Cause a Chef Infra Client run to fail when the Chef Infra Client  does not have administrator privileges in Windows.
 
 `-c CONFIG`, `--config CONFIG`
 
-:   The configuration file to use.
+: The configuration file to use.
 
 `--config-option OPTION`
 
-:   Overrides a single configuration option. Can be used to override
-    multiple configuration options by adding another
-    `--config-option OPTION`.
+: Overrides a single configuration option. Can be used to override multiple configuration options by adding another `--config-option OPTION`.
 
-    ```ruby
-    property :db_password, String, sensitive: true
-    ```
+  ```ruby
+  property :db_password, String, sensitive: true
+  ```
 
 `--chef-zero-host HOST`
 
-:   The host on which chef-zero is started.
+: The host on which chef-zero is started.
 
 `--chef-zero-port PORT`
 
-:   The port on which chef-zero listens. If a port is not
-    specified---individually, as range of ports, or from the
-    `chef_zero.port` setting in the client.rb file---the Chef Infra
-    Client will scan for ports between 8889-9999 and will pick the first
-    port that is available.
-
-    Changed in Chef Client 12.0 to support specifying a range of ports.
+: The port on which chef-zero listens. If a port is not specified---individually, as range of ports, or from the `chef_zero.port` setting in the client.rb file---the Chef Infra Client will scan for ports between 8889-9999 and will pick the first port that is available.
 
 `-d SECONDS`, `--daemonize SECONDS`
 
-:   Run the executable as a daemon. Use `SECONDS` to specify the number
-    of seconds to wait before the first daemonized Chef Infra Client
-    run. `SECONDS` is set to `0` by default.
+: Run the executable as a daemon. Use `SECONDS` to specify the number of seconds to wait before the first daemonized Chef Infra Client run. `SECONDS` is set to `0` by default. Left unset, the daemon uses the default `--interval` an `--splay` values.
 
-    This option is only available on machines that run in UNIX or Linux
-    environments. For machines that are running Microsoft Windows that
-    require similar functionality, use the `chef-client::service` recipe
-    in the `chef-client` cookbook:
-    <https://supermarket.chef.io/cookbooks/chef-client>. This will
-    install a Chef Infra Client service under Microsoft Windows using
-    the Windows Service Wrapper.
+  This option is only available on machines that run in UNIX or Linux environments. For machines that are running Windows that require similar functionality, use the `chef-client::service` recipe in the `chef-client` cookbook: <https://supermarket.chef.io/cookbooks/chef-client>. This will install a Chef Infra Client service under Windows using the Windows Service Wrapper.
 
 `--delete-entire-chef-repo`
 
-:   This option deletes an entire repository. This option may only be
-    used when running the Chef Infra Client in local mode,
-    (`--local-mode`). This option requires `--recipe-url` to be
-    specified.
+: This option deletes an entire repository. This option may only be used when running the Chef Infra Client in local mode, (`--local-mode`). This option requires `--recipe-url` to be specified.
 
 `--disable-config`
 
-:   Use to run the Chef Infra Client using default settings. This will
-    prevent the normally-associated configuration file from being used.
-    This setting should only be used for testing purposes and should
-    never be used in a production setting.
+: Use to run the Chef Infra Client using default settings. This will prevent the normally-associated configuration file from being used. This setting should only be used for testing purposes and should never be used in a production setting.
 
 `-E ENVIRONMENT_NAME`, `--environment ENVIRONMENT_NAME`
 
-:   The name of the environment.
+: The name of the environment.
 
 `-f`, `--[no-]fork`
 
-:   Contain Chef Infra Client runs in a secondary process with dedicated
-    RAM. When a Chef Infra Client run is complete, the RAM is returned
-    to the master process. This option helps ensure that a Chef Infra
-    Client uses a steady amount of RAM over time because the master
-    process does not run recipes. This option also helps prevent memory
-    leaks such as those that can be introduced by the code contained
-    within a poorly designed cookbook. Use `--no-fork` to disable
-    running Chef Infra Client in fork node. Default value: `--fork`.
-
-    Changed in Chef Client 12.0, unforked interval runs are no longer
-    allowed.
+: Contain Chef Infra Client runs in a secondary process with dedicated RAM. When a Chef Infra Client run is complete, the RAM is returned to the master process. This option helps ensure that a Chef Infra Client uses a steady amount of RAM over time because the master process does not run recipes. This option also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Use `--no-fork` to disable running Chef Infra Client in fork node. Default value: `--fork`.
 
 `-F FORMAT`, `--format FORMAT`
 
-:   {{% ctl_chef_client_options_format %}}
+: {{% ctl_chef_client_options_format %}}
 
 `--force-formatter`
 
-:   Show formatter output instead of logger output.
+: Show formatter output instead of logger output.
 
 `--force-logger`
 
-:   Show logger output instead of formatter output.
+: Show logger output instead of formatter output.
 
 `-g GROUP`, `--group GROUP`
 
-:   The name of the group that owns a process. This is required when
-    starting any executable as a daemon.
+: The name of the group that owns a process. This is required when starting any executable as a daemon.
 
 `-h`, `--help`
 
-:   Show help for the command.
+: Show help for the command.
 
 `-i SECONDS`, `--interval SECONDS`
 
-:   The frequency (in seconds) at which Chef Infra Client runs. When
-    running Chef Infra Client at intervals, apply `--splay` and
-    `--interval` values before a Chef Infra Client run. Default value:
-    `1800`.
+: The frequency (in seconds) at which Chef Infra Client runs. When running Chef Infra Client at intervals, apply `--splay` and `--interval` values before a Chef Infra Client run. Default value: `1800`.
 
 `-j PATH`, `--json-attributes PATH`
 
-:   The path to a file that contains JSON data. Used to setup the first
-    client run. The attributes will persist on the Chef Infra Server for
-    all future runs with option `-j`.
+: The path to a file that contains JSON data. Used to setup the first client run. The attributes will persist on the Chef Infra Server for all future runs with option `-j`.
 
     **Run-lists**
 
@@ -163,9 +124,7 @@ This command has the following options:
 
     {{< note spaces=4 >}}
 
-    Any environment specified for `chef_environment` by a JSON file will
-    take precedence over an environment specified by the `--environment`
-    option when both options are part of the same command.
+    Any environment specified for `chef_environment` by a JSON file will take precedence over an environment specified by the `--environment` option when both options are part of the same command.
 
     {{< /note >}}
 
@@ -235,155 +194,153 @@ This command has the following options:
 
 `-k KEY_FILE`, `--client_key KEY_FILE`
 
-:   The location of the file that contains the client key. Default
+: The location of the file that contains the client key. Default
     value: `/etc/chef/client.pem`.
 
 `-K KEY_FILE`, `--validation_key KEY_FILE`
 
-:   The location of the file that contains the key used when a Chef
+: The location of the file that contains the key used when a Chef
     Infra Client is registered with a Chef Infra Server. A validation
     key is signed using the `validation_client_name` for authentication.
     Default value: `/etc/chef/validation.pem`.
 
 `-l LEVEL`, `--log_level LEVEL`
 
-:   The level of logging to be stored in a log file. Possible levels:
+: The level of logging to be stored in a log file. Possible levels:
     `auto` (default), `debug`, `error`, `fatal`, `info`, `trace`, or `warn`.
     Default value: `warn` (when a terminal is available) or `info` (when
     a terminal is not available).
 
 `-L LOGLOCATION`, `--logfile LOGLOCATION`
 
-:   The location of the log file. This is recommended when starting any
+: The location of the log file. This is recommended when starting any
     executable as a daemon. Default value: `STDOUT`.
 
 `--lockfile LOCATION`
 
-:   Use to specify the location of the lock file, which prevents
+: Use to specify the location of the lock file, which prevents
     multiple Chef Infra Client processes from converging at the same
     time.
 
 `--minimal-ohai`
 
-:   Run the Ohai plugins for name detection and resource/provider
+: Run the Ohai plugins for name detection and resource/provider
     selection and no other Ohai plugins. Set to `true` during
     integration testing to speed up test cycles.
 
 `--[no-]color`
 
-:   View colored output. Default setting: `--color`.
+: View colored output. Default setting: `--color`.
 
 `--[no-]fips`
 
-:   Allows OpenSSL to enforce FIPS-validated security during a Chef
+: Allows OpenSSL to enforce FIPS-validated security during a Chef
     Infra Client run.
 
 `--[no-]skip-cookbook-sync`
 
-:   Use cached cookbooks without overwriting local differences from the
-    server. Use with caution. Useful for patching a set of cookbooks on
-    a machine when iterating during development.
+: Not recommended. Use cached cookbooks without overwriting local differences from the server. Useful for patching a set of cookbooks on a machine when iterating during development. This option can cause unanticipated behavior.
 
 `--[no-]listen`
 
-:   Run chef-zero in socketless mode. **This is the default behavior on
-    Chef Client 13.1 and above.**
+: Run chef-zero in socketless mode. **This is the default behavior on
+    Chef Infra Client 13.1 and above.**
 
 `-n NAME`, `--named-run-list NAME`
 
-:   The run-list associated with a policy file.
+: The run-list associated with a policy file.
 
 `-N NODE_NAME`, `--node-name NODE_NAME`
 
-:   The unique identifier of the node.
+: The unique identifier of the node.
 
 `-o RUN_LIST_ITEM`, `--override-runlist RUN_LIST_ITEM`
 
-:   Replace the current run-list with the specified items. This option
+: Replace the current run-list with the specified items. This option
     will not clear the list of cookbooks (and related files) that is
     cached on the node. This option will not persist node data at the
     end of the client run.
 
 `--once`
 
-:   Make only one Chef Infra Client run and cancel `interval` and
+: Make only one Chef Infra Client run and cancel `interval` and
     `splay` options.
 
 `-P PID_FILE`, `--pid PID_FILE`
 
-:   The location in which a process identification number (pid) is
+: The location in which a process identification number (pid) is
     saved. An executable, when started as a daemon, writes the pid to
     the specified file. Default value: `/tmp/name-of-executable.pid`.
 
 `--profile-ruby`
 
-:   Use the `--profile-ruby` option to dump a (large) profiling graph
+: Use the `--profile-ruby` option to dump a (large) profiling graph
     into `/var/chef/cache/graph_profile.out`. Use the graph output to
     help identify, and then resolve performance bottlenecks in a Chef
     Infra Client run. This option:
 
-    -   Generates a large amount of data about a Chef Infra Client run.
-    -   Has a dependency on the `ruby-prof` gem, which is packaged as
+    - Generates a large amount of data about a Chef Infra Client run.
+    - Has a dependency on the `ruby-prof` gem, which is packaged as
         part of Chef and Chef Workstation.
-    -   Increases the amount of time required to complete a Chef Infra
+    - Increases the amount of time required to complete a Chef Infra
         Client run.
-    -   Should not be used in a production environment.
+    - Should not be used in a production environment.
 
 `-r RUN_LIST_ITEM`, `--runlist RUN_LIST_ITEM`
 
-:   Permanently replace the current run-list with the specified run-list
+: Permanently replace the current run-list with the specified run-list
     items.
 
 `-R`, `--enable-reporting`
 
-:   Enable Reporting, which performs data collection during a Chef Infra
+: Enable Reporting, which performs data collection during a Chef Infra
     Client run.
 
 `RECIPE_FILE`
 
-:   The path to a recipe. For example, if a recipe file is in the
+: The path to a recipe. For example, if a recipe file is in the
     current directory, use `recipe_file.rb`. This is typically used with
     the `--local-mode` option.
 
 `--recipe-url=RECIPE_URL`
 
-:   The location of a recipe when it exists at a URL. Use this option
+: The location of a recipe when it exists at a URL. Use this option
     only when running Chef Infra Client with the `--local-mode` option.
 
 `--run-lock-timeout SECONDS`
 
-:   The amount of time (in seconds) to wait for a Chef Infra Client lock
+: The amount of time (in seconds) to wait for a Chef Infra Client lock
     file to be deleted. Default value: not set (indefinite). Set to `0`
     to cause a second Chef Infra Client to exit immediately.
 
 `-s SECONDS`, `--splay SECONDS`
 
-:   A random number between zero and `splay` that is added to
+: A random number between zero and `splay` that is added to
     `interval`. Use splay to help balance the load on the Chef Infra
     Server by ensuring that many Chef Infra Client runs are not
     occurring at the same interval. When running Chef Infra Client at
     intervals, apply `--splay` and `--interval` values before a Chef
     Infra Client run.
 
-    Changed in Chef Client 12.0 to be applied before the Chef Client
+    Changed in Chef Infra Client 12.0 to be applied before the Chef Infra Client
     run.
 
 `-S CHEF_SERVER_URL`, `--server CHEF_SERVER_URL`
 
-:   The URL for the Chef Infra Server.
+: The URL for the Chef Infra Server.
 
 `-u USER`, `--user USER`
 
-:   The user that owns a process. This is required when starting any
+: The user that owns a process. This is required when starting any
     executable as a daemon.
 
 `-v`, `--version`
 
-:   The Chef Infra Client version.
+: The Chef Infra Client version.
 
 `-W`, `--why-run`
 
-:   Run the executable in why-run mode, which is a type of Chef Infra
+: Run the executable in why-run mode, which is a type of Chef Infra
     Client run that does everything except modify the system. Use
     why-run mode to understand why the Chef Infra Client makes the
     decisions that it makes and to learn more about the current and
@@ -391,7 +348,7 @@ This command has the following options:
 
 `-z`, `--local-mode`
 
-:   Run the Chef Infra Client in local mode. This allows all commands
+: Run the Chef Infra Client in local mode. This allows all commands
     that work against the Chef Infra Server to also work against the
     local chef-repo.
 
@@ -404,10 +361,10 @@ Infra Client run. A new Chef Infra Client run looks for the presence of
 a lock file and, if present, will wait for that lock file to be deleted.
 The location of the lock file can vary by platform.
 
--   Use the `lockfile` setting in the client.rb file to specify
+- Use the `lockfile` setting in the client.rb file to specify
     non-default locations for the lock file. (The default location is
     typically platform-dependent and is recommended.)
--   Use the `run_lock_timeout` setting in the client.rb file to specify
+- Use the `run_lock_timeout` setting in the client.rb file to specify
     the amount of time (in seconds) to wait for the lock file associated
     with an in-progress Chef Infra Client run to be deleted.
 
@@ -415,7 +372,7 @@ The location of the lock file can vary by platform.
 
 Local mode is a way to run the Chef Infra Client against the chef-repo
 on a local machine as if it were running against the Chef Infra Server.
-Local mode relies on chef-zero, which acts as a very lightweight
+Local mode relies on chef-zero, which acts as a lightweight
 instance of the Chef Infra Server. chef-zero reads and writes to the
 `chef_repo_path`, which allows all commands that normally work against
 the Chef Infra Server to be used against the local chef-repo.
@@ -437,7 +394,7 @@ access.
 why-run mode is a way to see what Chef Infra Client would have
 configured, had an actual Chef Infra Client run occurred. This approach
 is similar to the concept of "no-operation" (or "no-op"): decide what
-should be done, but then don't actually do anything until it's done
+should be done, but then do not actually do anything until it is done
 right. This approach to configuration management can help identify where
 complexity exists in the system, where inter-dependencies may be
 located, and to verify that everything will be configured in the desired
@@ -458,31 +415,31 @@ why-run mode is not a replacement for running cookbooks in a test
 environment that mirrors the production environment. Chef uses why-run
 mode to learn more about what is going on, but also Kitchen on developer
 systems, along with an internal OpenStack cloud and external cloud
-providers to test more thoroughly.
+providers for more thorough testing.
 
 {{< /note >}}
 
 When Chef Infra Client is run in why-run mode, certain assumptions are
 made:
 
--   If the **service** resource cannot find the appropriate command to
+- If the **service** resource cannot find the appropriate command to
     verify the status of a service, why-run mode will assume that the
     command would have been installed by a previous resource and that
     the service would not be running.
--   For `not_if` and `only_if` properties, why-run mode will assume
+- For `not_if` and `only_if` properties, why-run mode will assume
     these are commands or blocks that are safe to run. These conditions
     are not designed to be used to change the state of the system, but
     rather to help facilitate idempotency for the resource itself. That
     said, it may be possible that these attributes are being used in a
     way that modifies the system state
--   The closer the current state of the system is to the desired state,
+- The closer the current state of the system is to the desired state,
     the more useful why-run mode will be. For example, if a full
     run-list is run against a fresh system, that run-list may not be
     completely correct on the first try, but also that run-list will
     produce more output than a smaller run-list
 
 For example, the **service** resource can be used to start a service. If
-the action is `:start`, then the service will start if it isn't running
+the action is `:start`, then the service will start if it is not running
 and do nothing if it is running. If a service is installed from a
 package, then Chef Infra Client cannot check to see if the service is
 running until after the package is installed. In that case, why-run mode
@@ -493,13 +450,13 @@ important to know that these notifications are triggered correctly.
 
 ### About chef-zero
 
-chef-zero is a very lightweight Chef Infra Server that runs in-memory on
+chef-zero is a lightweight Chef Infra Server that runs in-memory on
 the local machine. This allows the Chef Infra Client to be run against
 the chef-repo as if it were running against the Chef Infra Server.
 chef-zero was [originally a standalone
 tool](https://github.com/chef/chef-zero); it is enabled from within the
-Chef Infra Client by using the `--local-mode` option. chef-zero is very
-useful for quickly testing and validating the behavior of the Chef Infra
+Chef Infra Client by using the `--local-mode` option. chef-zero is
+useful for testing and validating the behavior of the Chef Infra
 Client, cookbooks, recipes, and run-lists before uploading that data to
 the actual Chef Infra Server.
 
@@ -513,7 +470,7 @@ against using chef-zero as a persistent Chef Infra Server.
 
 {{< /note >}}
 
-Changed in Chef Client 12.8, now chef-zero supports all Chef Server API
+Changed in Chef Infra Client 12.8, now chef-zero supports all Chef Server API
 version 12 endpoints, except `/universe`.
 
 ### Use Encrypted Data Bags
@@ -548,28 +505,28 @@ be used:
 
 `HUP`
 
-:   Use to reconfigure the Chef Infra Client.
+: Use to reconfigure the Chef Infra Client.
 
 `INT`
 
-:   Use to terminate immediately without waiting for the current Chef
+: Use to terminate immediately without waiting for the current Chef
     Infra Client run to finish.
 
 `QUIT`
 
-:   Use to dump a stack trace, and continue to run.
+: Use to dump a stack trace, and continue to run.
 
 `TERM`
 
-:   Use to terminate but wait for the current Chef Infra Client run to
+: Use to terminate but wait for the current Chef Infra Client run to
     finish, and then exit.
 
 `USR1`
 
-:   Use to wake up sleeping Chef Infra Client and trigger node
+: Use to wake up sleeping Chef Infra Client and trigger node
     convergence.
 
-On Microsoft Windows, both the `HUP` and `QUIT` signals are not
+On Windows, both the `HUP` and `QUIT` signals are not
 supported.
 
 ## Run with Elevated Privileges
@@ -590,9 +547,9 @@ chef-client
 This can be resolved by running the command as root. There are a few
 ways this can be done:
 
--   Log in as root and then run the Chef Infra Client
+- Log in as root and then run the Chef Infra Client
 
--   Use `su` to become the root user, and then run the Chef Infra
+- Use `su` to become the root user, and then run the Chef Infra
     Client. For example:
 
     ```bash
@@ -605,13 +562,13 @@ ways this can be done:
     chef-client
     ```
 
--   Use the sudo utility
+- Use the sudo utility
 
     ```bash
     sudo chef-client
     ```
 
--   Give a user access to read `/etc/chef` and also the files accessed
+- Give a user access to read `/etc/chef` and also the files accessed
     by the Chef Infra Client. This requires super user privileges and,
     as such, is not a recommended approach
 
@@ -633,7 +590,7 @@ are necessary to deploy tooling for a specific application.
 The default configuration of the Chef Infra Client assumes that it is
 run as the root user. This affords the Chef Infra Client the greatest
 flexibility when managing the state of any object. However, the Chef
-Infra Client may be run as a non-root user---i.e. "run as a user with
+Infra Client may be run as a non-root user---that is, "run as a user with
 limited system privileges"---which can be useful when the objects on the
 system are available to other user accounts.
 
@@ -687,7 +644,7 @@ service 'apache2' do
 end
 ```
 
-This approach can work very well on a case-by-case basis. The challenge
+This approach can work well on a case-by-case basis. The challenge
 with this approach is often around managing the size of the
 `/etc/sudoers` file.
 
@@ -706,11 +663,11 @@ The Chef Infra Client has the [same system
 requirements](/chef_system_requirements/#chef-infra-client) on the
 AIX platform as any other platform, with the following notes:
 
--   Expand the file system on the AIX platform using `chfs` or by
+- Expand the file system on the AIX platform using `chfs` or by
     passing the `-X` flag to `installp` to automatically expand the
     logical partition (LPAR)
--   The EN_US (UTF-8) character set should be installed on the logical
-    partition prior to installing the Chef Infra Client
+- The EN_US (UTF-8) character set should be installed on the logical
+    partition before installing the Chef Infra Client
 
 **Install the Chef Infra Client on the AIX platform**
 
@@ -730,11 +687,9 @@ Infra Client on a logical partition (LPAR). When the system process
 limits are too low, the Chef Infra Client will not be able to create
 threads. To increase the system process limits:
 
-1.  Validate that the system process limits have not already been
-    increased.
+1. Validate that the system process limits have not already been increased.
 
-2.  If they have not been increased, run the following commands as a
-    root user:
+2. If they have not been increased, run the following commands as a root user:
 
     ```bash
     chsec -f /etc/security/limits -s default -a "rss=-1"
@@ -763,8 +718,7 @@ threads. To increase the system process limits:
 
     {{< /note >}}
 
-3.  Reboot the logical partition (LPAR) to apply the updated system
-    process limits.
+3. Reboot the logical partition (LPAR) to apply the updated system process limits.
 
 When the system process limits are too low, an error is returned similar
 to:
@@ -782,7 +736,7 @@ ThreadError: can't create Thread: Resource temporarily unavailable
 
 The Chef Infra Client uses the EN_US (UTF-8) character set. By default,
 the AIX base operating system does not include the EN_US (UTF-8)
-character set and it must be installed prior to installing the Chef
+character set and it must be installed before installing the Chef
 Infra Client. The EN_US (UTF-8) character set may be installed from the
 first disc in the AIX media or may be copied from
 `/installp/ppc/*EN_US*` to a location on the logical partition (LPAR).
@@ -794,7 +748,7 @@ that any workload partitions (WPARs) also have UTF-8 applied.
 Remember to point `INPUT device/directory` to `/tmp/rte` when not
 installing from CD.
 
-1.  From a root shell type:
+1. From a root shell type:
 
     ```text
     # smit lang
@@ -819,8 +773,7 @@ installing from CD.
     F9=Shell            F10=Exit            Enter=Do
     ```
 
-2.  Select `Add Additional Language Environments` and press `Enter`. A
-    screen similar to the following is returned:
+2. Select `Add Additional Language Environments` and press `Enter`. A screen similar to the following is returned:
 
     ```bash
     Add Additional Language Environments
@@ -843,12 +796,9 @@ installing from CD.
     F8=Image F9=Shell F10=Exit Enter=Do
     ```
 
-3.  Cursor over the first two entries---`CULTURAL convention to install`
-    and `LANGUAGE translation to install`---and use `F4` to navigate
-    through the list until `UTF-8 English (United States) [EN_US]` is
-    selected. (EN_US is in capital letters!)
+3. Cursor over the first two entries---`CULTURAL convention to install` and `LANGUAGE translation to install`---and use `F4` to navigate through the list until `UTF-8 English (United States) [EN_US]` is selected. (EN_US is in capital letters!)
 
-4.  Press `Enter` to apply and install the language set.
+4. Press `Enter` to apply and install the language set.
 
 **Providers**
 

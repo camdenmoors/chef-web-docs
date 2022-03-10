@@ -71,14 +71,14 @@ See the example at the bottom of this section.
 - identifier
 
 	The unique identifier for the page. No two pages in the left navigation menu
-	can have the same identifier. For this reason we've adopted the convention of
+	can have the same identifier. For this reason we have adopted the convention of
 	creating identifiers that start with the path of the page in the left navigation
 	menu followed by a space and then the name of the page itself.
 
 - parent
 
 	The location of the resource page in the left navigation menu. For resource pages
-	this is always `chef_infra/cookbook_reference/resources`.
+	this is always `chef_infra/resources`.
 
 Example menu section:
 
@@ -86,9 +86,9 @@ Example menu section:
 menu:
   infra:
     title: resource_name
-    identifier: chef_infra/cookbook_reference/resources/resource_name
+    identifier: chef_infra/resources/resource_name
       resource_name
-    parent: chef_infra/cookbook_reference/resources
+    parent: chef_infra/resources
 ```
 
 **robots**
@@ -142,7 +142,7 @@ resource_description_list:
 **resource_new_in**
 
 This will add **New in Chef Infra Client X.Y** to the description of the
-resource page. The text won't appear if value is blank.
+resource page. The text will not appear if value is blank.
 
 Example:
 
@@ -169,7 +169,6 @@ or,
       \    mkdir -p #{extract_path}\n    tar xzf #{src_filename} -C #{extract_path}\n\
       \    mv #{extract_path}/*/* #{extract_path}/\n    EOH\n  not_if { ::File.exist?(extract_path)\
       \ }\nend\n```"
-
 
 **syntax_properties_list**
 
@@ -277,7 +276,6 @@ properties_list:
 
 Each example should start with a bolded heading followed by
 blocks of text that describe and demonstrate how the resource works.
-
 
     examples: |
       **Update the Apt repository at a specified interval**:
@@ -406,11 +404,6 @@ section to the Common Resource Functionality section of the resource page.
 Used in the remote directory resource page. Adds the **Windows File Security**
 section to the Common Resource Functionality section of the resource page.
 
-**handler_custom**
-
-Used in the chef handler resource page. Adds the **Custom Handlers**
-section to the resource page.
-
 **cookbook_file_specificity**
 
 Used in the cookbook file resource page. Adds the **File Specificity**
@@ -435,5 +428,5 @@ templates, then those headings also have to be added or removed to the respectiv
 tables of contents templates.
 
 Failure to update the resource page table of contents templates
-may lead to links that don't link to the proper content, links that don't work properly,
-or content that isn't linked to in the table of contents.
+may lead to links that do not link to the proper content, links that do not work properly,
+or content that is not linked to in the table of contents.

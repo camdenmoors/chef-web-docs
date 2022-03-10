@@ -57,11 +57,8 @@
     {{ partial "footer" . }}
   </nav>
 
-  {{ partialCached "javascript" .  }}
-  {{ if $.Param "release_notes" }}
-    {{ partial "release_notes" . }}
-  {{ end }}
-
+  {{ partial "image_modal" . }}
+  {{ partialCached "javascript" . }}
   {{ partial "swiftype_search_modal" . }}
 
   </body>

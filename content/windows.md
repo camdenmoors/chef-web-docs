@@ -1,5 +1,5 @@
 +++
-title = "Chef for Microsoft Windows"
+title = "Chef for Windows"
 draft = false
 
 gh_repo = "chef-web-docs"
@@ -8,16 +8,16 @@ aliases = ["/windows.html"]
 
 [menu]
   [menu.infra]
-    title = "Chef for Microsoft Windows"
-    identifier = "chef_infra/getting_started/chef_on_windows_guide/windows.md Chef for Microsoft Windows"
-    parent = "chef_infra/getting_started/chef_on_windows_guide"
+    title = "Chef for Windows"
+    identifier = "chef_infra/integrations/windows/windows.md Chef for Windows"
+    parent = "chef_infra/integrations/windows"
     weight = 10
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 ## Overview
 
 The Chef Infra Client has specific components that are designed to
-support unique aspects of the Microsoft Windows platform, including
+support unique aspects of the Windows platform, including
 PowerShell, PowerShell DSC, and Internet Information Services (IIS).
 
 {{% windows_install_overview %}}
@@ -25,7 +25,7 @@ PowerShell, PowerShell DSC, and Internet Information Services (IIS).
 ## Setting up Windows Workstations
 
 To set up your Windows workstation follow the steps on [Chef for
-Microsoft Windows](/workstation/install_workstation/)
+Windows](/workstation/install_workstation/)
 
 ## Install Chef Infra Client on Windows Nodes
 
@@ -37,18 +37,18 @@ This command has the following syntax:
 chef-client OPTION VALUE OPTION VALUE ...
 ```
 
-This command has the following option specific to Microsoft Windows:
+This command has the following option specific to Windows:
 
 `-A`, `--fatal-windows-admin-check`
 
 :   Cause a Chef Infra Client run to fail when Chef Infra Client does
-    not have administrator privileges in Microsoft Windows.
+    not have administrator privileges in Windows.
 
 ### System Requirements
 
 The recommended minimum amount of RAM available to Chef Infra Client
 during a Chef Infra Client run is 512MB. Each node and workstation must
-have access to Chef Infra Server via HTTPS. The Chef Infra Client can be
+have access to Chef Infra Server using HTTPS. The Chef Infra Client can be
 used to manage machines that run on the following versions of Microsoft
 Windows:
 
@@ -115,8 +115,8 @@ Se the [knife windows](/workstation/knife_windows/) for more information.
 ### Install Chef Infra Client using the MSI Installer
 
 A Microsoft Installer Package (MSI) is available for installing Chef
-Infra Client on a Microsoft Windows machine from [Chef
-Downloads](https://downloads.chef.io/).
+Infra Client on a Windows machine from [Chef
+Downloads](https://www.chef.io/downloads/tools/infra-client?os=windows).
 
 #### Msiexec.exe
 
@@ -137,7 +137,7 @@ Downloads](https://downloads.chef.io/).
 ## Windows Cookbooks
 
 Some of the most popular Chef-maintained cookbooks that contain custom
-resources useful when configuring machines running Microsoft Windows are
+resources useful when configuring machines running Windows are
 listed below:
 
 <table>
@@ -194,17 +194,25 @@ Two community supports two provisioners for Kitchen:
 
 Chef Infra provides a growing number of Windows-specific resources.
 
+- [cab_package](/resources/cab_package/)
+- [chef_client_scheduled_task](/resources/chef_client_scheduled_task/)
 - [chocolatey_config](/resources/chocolatey_config/)
+- [chocolatey_feature](/resources/chocolatey_feature/)
 - [chocolatey_package](/resources/chocolatey_package/)
 - [chocolatey_source](/resources/chocolatey_package/)
-- [chef_client_scheduled_task](/resources/chef_client_scheduled_task/)
 - [dsc_resource](/resources/dsc_resource/)
 - [dsc_script](/resources/dsc_script/)
+- [msu_package](/resources/msu_package/)
+- [powershell_package_source](/resources/powershell_package_source/)
+- [powershell_package](/resources/powershell_package/)
+- [powershell_script](/resources/powershell_script/)
 - [registry_key](/resources/registry_key/)
 - [windows_ad_join](/resources/windows_ad_join/)
 - [windows_audit_policy](/resources/windows_audit_policy/)
 - [windows_auto_run](/resources/windows_auto_run/)
 - [windows_certificate](/resources/windows_certificate/)
+- [windows_defender_exclusion](/resources/windows_defender_exclusion/)
+- [windows_defender](/resources/windows_defender/)
 - [windows_dfs_folder](/resources/windows_dfs_folder/)
 - [windows_dfs_namespace](/resources/windows_dfs_namespace/)
 - [windows_dfs_server](/resources/windows_dfs_server/)
@@ -234,7 +242,7 @@ Chef Infra provides a growing number of Windows-specific resources.
 ### Windows Compatible Resources
 
 The most popular core resources in Chef Infra Client work the same way
-in Microsoft Windows as they do on any UNIX- or Linux-based platform.
+in Windows as they do on any UNIX or Linux-based platform.
 
 - [cookbook_file](/resources/cookbook_file/)
 - [directory](/resources/directory/)
@@ -253,7 +261,7 @@ in Microsoft Windows as they do on any UNIX- or Linux-based platform.
 - [user](/resources/user/)
 
 The file-based resources have attributes that support unique
-requirements within the Microsoft Windows platform, including `inherits`
+requirements within the Windows platform, including `inherits`
 (for file inheritance), `mode` (for octal modes), and `rights` (for
 access control lists, or ACLs).
 

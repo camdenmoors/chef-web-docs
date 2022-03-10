@@ -14,6 +14,8 @@ aliases = ["/knife.html", "/knife_using.html", "/knife/"]
     weight = 10
 +++
 
+<!-- markdownlint-disable-file MD033 -->
+
 knife is a command-line tool that provides an interface between a local
 chef-repo and the Chef Infra Server. knife helps users to manage:
 
@@ -23,11 +25,6 @@ chef-repo and the Chef Infra Server. knife helps users to manage:
 - Resources within various cloud environments
 - The installation of Chef Infra Client onto nodes
 - Searching of indexed data on the Chef Infra Server
-
-The Knife Quick Reference provides an all-in-one quick reference of
-knife commands. You can view the
-[overview](https://github.com/chef/quick-reference/blob/master/qr_knife_web.png)
-or download the [source files](https://github.com/chef/quick-reference).
 
 <table>
 <colgroup>

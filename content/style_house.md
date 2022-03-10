@@ -11,6 +11,7 @@ gh_repo = "chef-web-docs"
     parent = "overview/style"
     weight = 90
 +++
+<!-- markdownlint-disable-file MD013 -->
 
 We recommend that you use the conventions described in this guide when contributing to the Chef reference documentation.
 
@@ -21,7 +22,7 @@ For Chef applications and components, use:
 - Chef Automate
 - Chef Habitat
 - Chef Infra (formerly Chef)
-- Chef Infra Client (Use Chef Client up to version 14.x)
+- Chef Infra Client (Use Chef Infra Client up to version 14.x)
 - Chef Infra Server (Formerly Chef Server)
 - Chef InSpec
 
@@ -36,7 +37,7 @@ docs.
 A tautology, when used as a description for a component, setting,
 method, etc. should be avoided. If a string is a tautology, some effort
 should be made to make it not so. An example of a tautology is something
-like "Create a new user" (by its very nature, a user created **is** a
+like "Create a new user" (a user created **is** a
 new user) or (for a setting named `cidr_block`) "The CIDR block for the
 VPC."
 
@@ -60,13 +61,15 @@ Use the `4thcafe.com` domain for generic domains and email addresses in the docu
 
 ### Example Names
 
-Don't reveal personal information in examples, such as the names of real people, real email addresses, or phone numbers.
+do not reveal personal information in examples, such as the names of real people, real email addresses, or phone numbers.
 
-Don't use the names of bands, musicians, or characters from works that are under copyright.
+do not use the names of bands, musicians, or characters from works that are under copyright.
 
 When writing about security, follow the accepted convention and use "Alice" and "Bob". Following this convention helps readers see that they are reading a topic about security and integrate the Chef information with their existing knowledge.
 
 Here is a list of some example names for you to use (the last names are translations of "Chef"):
+
+<!-- cSpell:disable -->
 
 - Ares Koch
 - Tamira Bucatar
@@ -76,6 +79,8 @@ Here is a list of some example names for you to use (the last names are translat
 - Booker Yolisa
 - Kala Baavarchee
 - Samuel Tagaluto
+
+<!-- cSpell:enable -->
 
 ### Example Email Addresses
 
@@ -92,7 +97,7 @@ Use `docs@chef.io` for the Chef Technical Documentation team.
 
 #### Example Phone Numbers
 
-Never use a real phone number in an example. For a US phone number, use one from the range reserved for examples in fiction, which is (800) 555-0100 through (800) 555-0199.
+Never use a real phone number in an example. For a US phone number, use one from the range reserved for examples in fiction, which is (800) 555--0100 through (800) 555--0199.
 
 ### Example Addresses
 
@@ -127,3 +132,13 @@ For IPv6 addresses, use one of the addresses provided in [RFC 3849](https://tool
 IPv6 address range:
 
 - `2001:DB8::/32`
+
+### Some Existing Example Patterns
+
+The Chef docs have some useful example patterns of unknown origin.
+
+- Cookbook documentation uses `custom_web` as the example cookbook
+- Custom resource documentation uses `site` as the example custom resource
+- Templates documentation uses `httpd` as the template example
+- The documentation uses `webserver` as an example role in Chef Infra Client and Chef Infra Server documentation,`name: webserver`, `role[webserver]`, and `role:webserver`.
+- These examples often draw on each other.

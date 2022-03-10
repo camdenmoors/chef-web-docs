@@ -7,11 +7,10 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.infra]
     title = "Editing Resources"
-    identifier = "chef_infra/cookbook_reference/infra_language/editing_resources.md Editing Resources"
-    parent = "chef_infra/cookbook_reference/infra_language"
-    weight = 80
+    identifier = "chef_infra/infra_language/editing_resources.md Editing Resources"
+    parent = "chef_infra/infra_language"
 +++
-
+<!-- markdownlint-disable-file MD026 -->
 ## declare_resource
 
 Use the `declare_resource` method to instantiate a resource and then add it to the resource collection.

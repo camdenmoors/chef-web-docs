@@ -7,6 +7,11 @@ resource: chocolatey_config
 resource_description_list:
 - markdown: Use the **chocolatey_config** resource to add or remove Chocolatey configuration
     keys.
+- note:
+    markdown: The Chocolatey package manager is not installed on Windows by default.
+      You will need to install it prior to using this resource by adding the [Chocolatey
+      cookbook](https://supermarket.chef.io/cookbooks/chocolatey/) to your node's
+      run list.
 resource_new_in: '14.3'
 syntax_full_code_block: |-
   chocolatey_config 'name' do
@@ -42,7 +47,7 @@ properties_list:
   description_list:
   - markdown: The value to set.
 examples: |
-  **Set the Chocolatey cacheLocation config**
+  **Set the Chocolatey cacheLocation config**:
 
   ```ruby
   chocolatey_config 'Set cacheLocation config' do
@@ -51,7 +56,7 @@ examples: |
   end
   ```
 
-  **Unset a Chocolatey config**
+  **Unset a Chocolatey config**:
 
   ```ruby
   chocolatey_config 'BogusConfig' do

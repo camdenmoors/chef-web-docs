@@ -12,6 +12,7 @@ aliases = ["/knife_search.html", "/knife_search/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_search.md knife search"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
+<!-- markdownlint-disable-file MD024 MD036 -->
 
 {{% search %}}
 
@@ -42,7 +43,6 @@ will return something similar to:
 
 centos-62-dev
 opensuse-15
-ubuntu-1604-dev
 ubuntu-1804-orgtest
 ubuntu-1804-ohai-test
 ubuntu-1804-ifcfg-test

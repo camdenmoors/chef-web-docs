@@ -7,9 +7,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.infra]
     title = "Reading Data Bags"
-    identifier = "chef_infra/cookbook_reference/infra_language/readig_data_bags.md Reading Data Bags"
-    parent = "chef_infra/cookbook_reference/infra_language"
-    weight = 40
+    identifier = "chef_infra/infra_language/reading_data_bags.md Reading Data Bags"
+    parent = "chef_infra/infra_language"
 +++
 
 ## data_bag
@@ -28,7 +27,7 @@ data_bag(bag_name)
 
 The following example shows how the `data_bag` method can be used in a recipe.
 
-**Get a data bag, and then iterate through each data bag item**
+#### Get a data bag, and then iterate through each data bag item
 
 {{% infra_lang_data_bag %}}
 
@@ -50,11 +49,11 @@ where `secret` is the secret used to load an encrypted data bag. If `secret` is 
 
 The following examples show how the `data_bag_item` method can be used in a recipe.
 
-**Get a data bag, and then iterate through each data bag item**
+#### Get a data bag, and then iterate through each data bag item
 
 {{% infra_lang_data_bag %}}
 
-**Use the contents of a data bag in a recipe**
+#### Use the contents of a data bag in a recipe
 
 The following example shows how to use the `data_bag` and `data_bag_item` methods in a recipe, also using a data bag named `sea-power`):
 

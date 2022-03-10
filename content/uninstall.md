@@ -10,8 +10,8 @@ product = ["workstation", "server"]
 [menu]
   [menu.infra]
     title = "Uninstall"
-    identifier = "chef_infra/getting_started/uninstall.md Uninstall"
-    parent = "chef_infra/getting_started"
+    identifier = "chef_infra/install/uninstall.md Uninstall"
+    parent = "chef_infra/install"
     weight = 80
 +++
 
@@ -26,13 +26,15 @@ other components.
 
 To uninstall the Chef management console, do the following:
 
-1.  Run the following command:
+1. Run the following command:
 
     ```bash
     chef-manage-ctl cleanse
+    rm -fr /var/opt/opscode/nginx/etc/addon.d/*manage*
+    chef-server-ctl restart nginx
     ```
 
-2.  Use the package manager for the platform on which the Chef
+2. Use the package manager for the platform on which the Chef
     management console is installed, and then uninstall the package
     named `chef-manage`.
 
@@ -102,7 +104,7 @@ Use the following commands to remove Chef Workstation on macOS.
 To remove installed files:
 
 ```bash
-sudo rm -rf `/opt/chef-workstation
+sudo rm -rf /opt/chef-workstation
 ```
 
 To remove the system installation entry:
@@ -127,7 +129,7 @@ rpm -qa *chef-workstation*
 sudo yum remove -y <package>
 ```
 
-### Microsoft Windows
+### Windows
 
 Use **Add / Remove Programs** to remove Chef Workstation on the
-Microsoft Windows platform.
+Windows platform.

@@ -10,10 +10,10 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "bash"
-    identifier = "chef_infra/cookbook_reference/resources/bash"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/bash"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the bash.yaml file in the data directory. -->
-<!-- To suggest a change, edit the https://github.com/chef/chef/blob/master/lib/chef/resource/bash.rb file
+<!-- To suggest a change, edit the https://github.com/chef/chef/blob/main/lib/chef/resource/bash.rb file
       and submit a pull request to the https://github.com/chef/chef repository. -->

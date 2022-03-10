@@ -1,20 +1,18 @@
-Unified mode combines the compile and converge stages of the Chef Infra Client run into one phase. In unified mode, Chef Infra Client compiles and converges a custom resource in one pass and in the order that the code is compiled, from the beginning to the end.
-
-Unified mode is only available on custom resources. Chef Infra Client processes all other resources with separate compile and converge phases.
+Unified mode combines the compile and converge stages of the Chef Infra Client run into one phase. When a resource has unified mode enabled, the Chef Infra Client compiles and converges that resource's action block in one pass and in the order that the code inside that block is compiled, from the beginning to the end.
 
 In Chef Infra Client 17 (April 2021) and some earlier versions, the default behavior is `unified_mode false`. Enable unified mode on a custom resource with `unified_mode true`. Chef Infra Client displays a deprecation message with `unified_mode false`.
 
 In Chef Infra Client 18 (April 2022), `unified_mode true` will become the default behavior.
 
-|Chef Infra Client  | Unified Mode                 |
-|-------------------|-----------------------------|
-| 18.x (2022)       | Default: `unified_mode true` |
-| 17.x (2021)              | Default: `unified_mode false`|
-| 16.x (2020)              | Default: `unified_mode false`|
-| 15.3 and higher   | Default: `unified_mode false`|
-| 15.0–15.2        | Not available               |
-| 14.14 and higher  | Default: `unified_mode false`|
-| Lower than 14.14  | Not available               |
+|Chef Infra Client  | Unified Mode                  |
+|-------------------|-------------------------------|
+| 18.x (2022)       | Default: `unified_mode true`  |
+| 17.x (2021)       | Default: `unified_mode false` |
+| 16.x (2020)       | Default: `unified_mode false` |
+| 15.3 and higher   | Default: `unified_mode false` |
+| 15.0–15.2         | Not available                 |
+| 14.14-14.15       | Default: `unified_mode false` |
+| Lower than 14.14  | Not available                 |
 
 ## Enable Unified Mode
 
@@ -96,7 +94,7 @@ end
 
 Another solution is to continue saving the resource as a variable, declaring `action :nothing` within the codeblock and then explicitly running the action in another codeblock.
 
-The pattern of saving a resource as a variable and then forcing it to run at compile time with an explicit `run_action` works as it has in the past, but it not a preferred pattern. Unified mode forces resource execution to compile time by default, which makes this pattern redundant.
+The pattern of saving a resource as a variable and then forcing it to run at compile time with an explicit `run_action` works as it has in the past, but it is not a preferred pattern. Unified mode forces resource execution to compile time by default, which makes this pattern redundant.
 
 ```ruby
 sr = edit_resource(:dhcp_subnet, "#{new_resource.name}_sharedsubnet_#{subnet}") do
@@ -128,9 +126,9 @@ Since unified mode executes your resource as it is compiled, `:immediate` notifi
 Unified mode delays immediate notifications to later resources.
 In unified mode the Chef Infra Client saves immediate notifications and executes them when the later resource is parsed. Immediate notifications to prior resources and delayed notifications behave the same as they did before unified mode.
 
-The end result of sequentially chaining immediate notifications is the same as before unified mode. Instead of immediately notifying results, the notifications fire _in order_ as they are parsed, which has the same outcome. If the parse order and the intended execution order are very different, then the results may be different and are a reflection of the parse order.
+The end result of sequentially chaining immediate notifications is the same as before unified mode. Instead of immediately notifying results, the notifications fire _in order_ as they are parsed, which has the same outcome. If the parse order and the intended execution order are different, then the results may be different and are a reflection of the parse order.
 
-The changes to sending immediate notification could result in subtle changes to behaviors in some resources, but it not a breaking change to common patterns of writing resources.
+The changes to sending immediate notification could result in subtle changes to behaviors in some resources, but it is not a breaking change to common patterns of writing resources.
 
 Chaining immediate notifications to later resources:
 

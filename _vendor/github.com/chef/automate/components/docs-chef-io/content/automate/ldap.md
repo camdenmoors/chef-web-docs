@@ -8,8 +8,8 @@ gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "LDAP"
-    parent = "automate/configuring_automate"
-    identifier = "automate/configuring_automate/ldap.md LDAP"
+    parent = "automate/users/authentication"
+    identifier = "automate/users/authentication/ldap.md LDAP"
     weight = 30
 +++
 
@@ -61,7 +61,7 @@ To configure Microsoft AD using SAML, see the [SAML documentation]({{< relref "s
 If you need to change your configured external identity provider settings, replace your existing configuration by following these steps:
 
 1. Run `chef-automate config show config.toml`.
-2. Edit `config.toml` to replace the `dex.sys.connectors` section with the configuration values for your new identity provider.
+2. Edit `config.toml` to replace the `dex.v1.sys.connectors` section with the configuration values for your new identity provider.
 3. Run `chef-automate config set config.toml` to set your updated configuration.
 
 ### Minimal MSAD Configuration

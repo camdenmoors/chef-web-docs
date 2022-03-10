@@ -11,8 +11,8 @@ product = ["client", "workstation", "automate"]
 [menu]
   [menu.infra]
     title = "AWS Marketplace"
-    identifier = "chef_infra/setup/integrations/aws_marketplace.md AWS Marketplace"
-    parent = "chef_infra/setup/integrations"
+    identifier = "chef_infra/integrations/aws_marketplace.md AWS Marketplace"
+    parent = "chef_infra/integrations"
     weight = 10
 +++
 
@@ -24,7 +24,7 @@ Use this instance with Chef Workstation installed on your laptop or a separate A
 
 {{% workstation %}}
 
-If you need to run Automate with a high availability (HA) topology, please contact [Chef Support](https://www.chef.io/support).
+{{% automate_ha_support %}}
 
 ## Installation
 
@@ -35,7 +35,7 @@ The Chef Automate AWS deployment uses [CloudFormation](https://aws.amazon.com/cl
 Every CloudFormation Stack deployment creates a new [Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) (VPC).
 
 {{< note >}}
-AWS provides 5 VPCs per region. If you require more VPCs, please contact [AWS Support](https://aws.amazon.com/contact-us/).
+AWS provides 5 VPCs for each region. If you require more VPCs, please contact [AWS Support](https://aws.amazon.com/contact-us/).
 {{< /note >}}
 
 ### Start Chef Automate with CloudFormation
@@ -67,7 +67,7 @@ AWS provides 5 VPCs per region. If you require more VPCs, please contact [AWS Su
 ![Select 'advanced' to bypass the warning that the page is not secure](/images/NotSecurePage.png "Not Secure Page").
 
 1. Enter your **Username** and **Password** and select **Sign In**.
-![ ](/images/chef_automate_login.png "Automate")
+![ ](/images/chef_automate_login.png "Chef Automate Login")
 
 1. Fill out the registration form and [Accept the Chef License](https://docs.chef.io/chef_license_accept/).
 
@@ -103,7 +103,7 @@ AWS provides 5 VPCs per region. If you require more VPCs, please contact [AWS Su
     - Admin Key: _copy the key from starter kit_
 
 1. Select **Add Chef Organization**.
-![Select the Add Chef Organization button to complete this action](/images/OrgPageDetails.png")
+![Select the Add Chef Organization button to complete this action](/images/OrgPageDetails.png)
 
 ## AWS Deployment Security
 

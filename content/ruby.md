@@ -4,14 +4,13 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/ruby.html"]
+aliases = ["/ruby.html", "/just_enough_ruby_for_chef.html"]
 
 [menu]
   [menu.infra]
     title = "Ruby Guide"
-    identifier = "chef_infra/cookbook_reference/ruby.md Ruby Guide"
-    parent = "chef_infra/cookbook_reference"
-    weight = 130
+    identifier = "chef_infra/infra_language/ruby.md Ruby Guide"
+    parent = "chef_infra/infra_language"
 +++
 
 {{% ruby_summary %}}
@@ -24,8 +23,8 @@ This section covers the basics of Ruby.
 
 ### Verify Syntax
 
-Many people who are new to Ruby often find that it doesn't take very
-long to get up to speed with the basics. For example, it's useful to
+Many people who are new to Ruby often find that it does not take
+long to get up to speed with the basics. For example, it is useful to
 know how to check the syntax of a Ruby file, such as the contents of a
 cookbook named `my_cookbook.rb`:
 
@@ -94,7 +93,7 @@ Embed Ruby in a string:
 ```ruby
 x = 'Bob'
 "Hi, #{x}"      # => "Hi, Bob"
-'Hello, #{x}'   # => "Hello, \#{x}" Notice that single quotes don't work with #{}
+'Hello, #{x}'   # => "Hello, \#{x}" Notice that single quotes do not work with #{}
 ```
 
 #### Escape Character
@@ -105,7 +104,7 @@ quotes inside double quotes. For example:
 
 ```ruby
 'It\'s alive!'                        # => "It's alive!"
-"Won\'t you read Grant\'s book?"      # => "Won't you read Grant's book?"
+"Won\'t you read Grant\'s book?"      # => "will not you read Grant's book?"
 ```
 
 #### Interpolation
@@ -203,7 +202,7 @@ end
 
 {{% ruby_style_patterns_string_quoting_vs_whitespace_array %}}
 
-**Example**
+##### Example
 
 WiX includes several tools -- such as `candle` (preprocesses and
 compiles source files into object files), `light` (links and binds
@@ -226,7 +225,7 @@ end
 
 ### Hash
 
-A Hash is a list with keys and values. Sometimes hashes don't have a set
+A Hash is a list with keys and values. Sometimes hashes do not have a set
 order:
 
 ```ruby
@@ -265,9 +264,9 @@ Use conditions! For example, an `if` statement
 
 ```ruby
 if false
-  # this won't happen
+  # this will not happen
 elsif nil
-  # this won't either
+  # this will not either
 else
   # code here will run though
 end
@@ -279,7 +278,7 @@ or a `case` statement:
 x = 'dog'
 case x
 when 'fish'
- # this won't happen
+ # this will not happen
 when 'dog', 'cat', 'monkey'
   # this will run
 else
@@ -304,7 +303,7 @@ if node['platform'] == 'ubuntu'
 end
 ```
 
-**if modifier**
+##### if modifier
 
 `if` can be used as a modifier that executes the left side of an expression
 if the right side of the expression is true. The `if` modifier expression must
@@ -427,8 +426,8 @@ This section covers best practices for cookbook and recipe authoring.
 Although not strictly a Chef style thing, please always ensure your
 `user.name` and `user.email` are set properly in your `.gitconfig` file.
 
--   `user.name` should be your given name (e.g., "Julian Dunn")
--   `user.email` should be an actual, working e-mail address
+- `user.name` should be your given name (for example, "Julian Dunn")
+- `user.email` should be an actual, working e-mail address
 
 This will prevent commit log entries similar to
 `"guestuser <login@Bobs-Macbook-Pro.local>"`, which are unhelpful.
@@ -445,36 +444,36 @@ SecondMarket, use `sm` as a prefix: `sm_postgresql` or `sm_httpd`.
 
 ### Cookbook Versioning
 
--   Use semantic versioning when numbering cookbooks.
--   Only upload stable cookbooks from master.
--   Only upload unstable cookbooks from the dev branch. Merge to master
+- Use semantic versioning when numbering cookbooks.
+- Only upload stable cookbooks from master.
+- Only upload unstable cookbooks from the dev branch. Merge to master
     and bump the version when stable.
--   Always update CHANGELOG.md with any changes, with the JIRA ticket
+- Always update CHANGELOG.md with any changes, with the JIRA ticket
     and a brief description.
 
 ### Naming
 
 Name things uniformly for their system and component. For example:
 
--   attributes: `node['foo']['bar']`
--   recipe: `foo::bar`
--   role: `foo-bar`
--   directories: `foo/bar` (if specific to component), `foo` (if not).
+- attributes: `node['foo']['bar']`
+- recipe: `foo::bar`
+- role: `foo-bar`
+- directories: `foo/bar` (if specific to component), `foo` (if not).
     For example: `/var/log/foo/bar`.
 
-Name attributes after the recipe in which they are primarily used. e.g.
+Name attributes after the recipe in which they are primarily used. for example
 `node['postgresql']['server']`.
 
 ### Parameter Order
 
 Follow this order for information in each resource declaration:
 
--   Source
--   Cookbook
--   Resource ownership
--   Permissions
--   Notifications
--   Action
+- Source
+- Cookbook
+- Resource ownership
+- Permissions
+- Notifications
+- Action
 
 For example:
 
@@ -515,7 +514,7 @@ mode 755
 
 A resource declaration does not require the action to be specified
 because Chef Infra Client will apply the default action for a resource
-automatically if it's not specified within the resource block. For
+automatically if it is not specified within the resource block. For
 example:
 
 ```ruby
@@ -538,7 +537,7 @@ end
 
 ### String Quoting
 
-Use single-quoted strings in all situations where the string doesn't
+Use single-quoted strings in all situations where the string does not
 need interpolation.
 
 #### Whitespace Arrays

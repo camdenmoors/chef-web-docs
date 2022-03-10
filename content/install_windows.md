@@ -9,8 +9,8 @@ aliases = ["/install_windows.html"]
 [menu]
   [menu.infra]
     title = "Windows Installation Guide"
-    identifier = "chef_infra/getting_started/chef_on_windows_guide/install_windows.md Chef Infra Client on Windows"
-    parent = "chef_infra/getting_started/chef_on_windows_guide"
+    identifier = "chef_infra/integrations/windows/install_windows.md Chef Infra Client on Windows"
+    parent = "chef_infra/integrations/windows"
     weight = 20
 +++
 
@@ -30,7 +30,7 @@ There are several methods available to install Chef Infra Client depending on th
 
 ### Use MSI Installer
 
-A Microsoft Installer Package (MSI) is available for installing Chef Infra Client on a Microsoft Windows machine at [Chef Downloads](https://downloads.chef.io/products/infra-client?os=windows).
+A Microsoft Installer Package (MSI) is available for installing Chef Infra Client on a Windows machine at [Chef Downloads](https://www.chef.io/downloads/tools/infra-client?os=windows).
 
 {{% windows_msiexec %}}
 
@@ -40,7 +40,7 @@ A Microsoft Installer Package (MSI) is available for installing Chef Infra Clien
 
 #### Running as a Scheduled Task
 
-On Microsoft Windows, run Chef Infra Client periodically as a scheduled task. Scheduled tasks provides visibility, configurability, and reliability around log rotation and permissions. You can configure the Chef Infra Client to run as a scheduled task using the [chef_client_scheduled_task](/resources/chef_client_scheduled_task/) resource.
+On Windows, run Chef Infra Client periodically as a scheduled task. Scheduled tasks provides visibility, configurability, and reliability around log rotation and permissions. You can configure the Chef Infra Client to run as a scheduled task using the [chef_client_scheduled_task](/resources/chef_client_scheduled_task/) resource.
 
 #### Scheduled Task Options
 

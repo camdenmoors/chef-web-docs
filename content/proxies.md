@@ -9,8 +9,8 @@ aliases = ["/proxies.html"]
 [menu]
   [menu.infra]
     title = "Working with Proxies"
-    identifier = "chef_infra/setup/proxies.md Working with Proxies"
-    parent = "chef_infra/setup"
+    identifier = "chef_infra/install/proxies.md Working with Proxies"
+    parent = "chef_infra/install"
     weight = 30
 +++
 
@@ -20,7 +20,7 @@ Chef to work in an environment that requires proxies, set the
 `http_proxy`, `https_proxy`, `ftp_proxy`, and/or `no_proxy` environment
 variables to specify the proxy settings using a lowercase value.
 
-## Microsoft Windows
+## Windows
 
 {{% proxy_windows %}}
 
@@ -34,7 +34,7 @@ env | grep -i http_proxy
 ```
 
 If an environment variable is set, it **MUST** be lowercase. If it is
-not, add a lowercase version of that proxy variable to the shell (e.g.
+not, add a lowercase version of that proxy variable to the shell (for example
 `~/.bashrc`) using one (or more) the following commands.
 
 For HTTP:
@@ -172,7 +172,7 @@ no_proxy 'test.example.com,test.example2.com,test.example3.com'
 
 Wildcard matching may be used in the `no_proxy` list---such as
 `no_proxy '*.*.example.*'`---however, many situations require hostnames
-to be specified explicitly (i.e. "without wildcards").
+to be specified explicitly (that is, "without wildcards").
 
 {{< /note >}}
 
@@ -181,12 +181,12 @@ to be specified explicitly (i.e. "without wildcards").
 Consider the following for situations where environment variables are
 used to set the proxy:
 
--   Proxy settings may not be honored by all applications. For example,
+- Proxy settings may not be honored by all applications. For example,
     proxy settings may be ignored by the underlying application when
     specifying a `ftp` source with a `remote_file` resource. Consider a
     workaround. For example, in this situation try doing a `wget` with
     an `ftp` URL instead.
--   Proxy settings may be honored inconsistently by applications. For
+- Proxy settings may be honored inconsistently by applications. For
     example, the behavior of the `no_proxy` setting may not work with
     certain applications when wildcards are specified. Consider
     specifying the hostnames without using wildcards.
