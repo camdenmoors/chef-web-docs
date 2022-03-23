@@ -142,6 +142,12 @@ identifier = "automate"
     weight = 100
 
     [[automate]]
+    title = "Migration"
+    identifier = "automate/deploy_high_availability/migration"
+    parent = "automate/deploy_high_availability"
+    weight = 110
+
+    [[automate]]
     title = "Common Features"
     identifier = "automate/deploy_high_availability/common_features"
     parent = "automate/deploy_high_availability"
