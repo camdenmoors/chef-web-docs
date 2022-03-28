@@ -118,46 +118,52 @@ identifier = "automate"
     weight = 10
 
     [[automate]]
+    title = "System Requirements"
+    identifier = "automate/deploy_high_availability/ha_system_requirements"
+    parent = "automate/deploy_high_availability"
+    weight = 40
+
+    [[automate]]
     title = "AWS Deployment"
     identifier = "automate/deploy_high_availability/aws_deployment"
     parent = "automate/deploy_high_availability"
-    weight = 40
+    weight = 60
 
     [[automate]]
     title = "On-Premises Deployment"
     identifier = "automate/deploy_high_availability/on_premises_deployment"
     parent = "automate/deploy_high_availability"
-    weight = 60
+    weight = 80
 
     [[automate]]
     title = "Certificates"
     identifier = "automate/deploy_high_availability/certificates"
     parent = "automate/deploy_high_availability"
-    weight = 80
+    weight = 100
 
     [[automate]]
     title = "Backup and Restore"
     identifier = "automate/deploy_high_availability/backup_and_restore"
     parent = "automate/deploy_high_availability"
-    weight = 100
+    weight = 120
 
     [[automate]]
     title = "Migration"
     identifier = "automate/deploy_high_availability/migration"
     parent = "automate/deploy_high_availability"
-    weight = 110
+    weight = 140
 
     [[automate]]
     title = "Common Features"
     identifier = "automate/deploy_high_availability/common_features"
     parent = "automate/deploy_high_availability"
-    weight = 120
+    weight = 160
 
     [[automate]]
     title = "FAQs"
     identifier = "automate/deploy_high_availability/faqs"
     parent = "automate/deploy_high_availability"
-    weight = 140
+    weight = 180
 
   [[automate]]
   title = "Configure"
