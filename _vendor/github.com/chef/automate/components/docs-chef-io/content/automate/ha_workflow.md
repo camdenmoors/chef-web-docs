@@ -7,9 +7,9 @@ gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Deployment Workflows"
-    parent = "automate/deploy_high_availability/introduction"
-    identifier = "automate/deploy_high_availability/introduction/ha_workflow.md Deployment Workflows"
-    weight = 230
+    parent = "automate/deploy_high_availability"
+    identifier = "automate/deploy_high_availability/ha_workflow.md Deployment Workflows"
+    weight = 20
 +++
 
 This page includes the two types of Chef Automate High Availability (HA) Workflows in words and infographic format.
@@ -44,7 +44,7 @@ This page includes the two types of Chef Automate High Availability (HA) Workflo
 1. Ensure you have _Chef Automate_ utility installed, else download and install the latest version.
 1. Execute the command, _./chef-automate init-config-ha existing\_infra_, that generates **config.toml** file.
 1. In the **config.toml** file, specify the list of VM's public IP addresses for the cluster.
-1. Execute the command, **./chef-automate deploy config.toml** , that creates deployment workspace (\*/hab/a2\_deploy\_workspace\*), downloads Habitat, and establishes the cluster provisioning in your workspace.
+1. Execute the command, **./chef-automate deploy config.toml**, that creates deployment workspace (\*/hab/a2\_deploy\_workspace\*), downloads Habitat, and establishes the cluster provisioning in your workspace.
 1. Specify the following edits in the **config.toml** file:
 
    1. SSH pair name, key file path, chef automate nodes, number of PostgreSQL nodes, number of Chef Server, and ElasticSearch nodes.
