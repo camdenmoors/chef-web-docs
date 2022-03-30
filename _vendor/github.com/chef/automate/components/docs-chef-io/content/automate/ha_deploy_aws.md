@@ -10,11 +10,7 @@ gh_repo = "automate"
     title = "AWS Deployment Model"
     parent = "automate/deploy_high_availability/aws_deployment"
     identifier = "automate/deploy_high_availability/aws_deployment/ha_deploy_aws.md AWS Deployment Model"
-<<<<<<< HEAD
-    weight = 200
-=======
     weight = 210
->>>>>>> 2f6db7354eac5d40479f28cdb1f33d6519f0f38f
 +++
 
 <!-- !-- Chef gonna give storage calculator for customer to provide req and derive their infrastructure.. this calc will be loaded into the doc page?? -->
@@ -44,11 +40,7 @@ For **Elasticsearch** and **PostgresSQL**, a minimum of three node clusters is r
 
 To deploy Chef Automate HA, execute the following steps in the listed order:
 
-<<<<<<< HEAD
-1. Set up the [Prerequisites for Chef Automate HA Deployment]({{< relref "ha_system_requirements.md" >}}).
-=======
 1. Set up the [Prerequisites for Chef Automate HA Deployment]({{< relref "ha_platform_support.md" >}}).
->>>>>>> 2f6db7354eac5d40479f28cdb1f33d6519f0f38f
 1. Obtain an AWS account or if you already have one, sign on to your AWS account.
 1. Setup the [Bastion Host AWS requirements]({{< relref "ha_bastion.md#Bastion Host Requirements for AWS (Amazon Web Services)" >}}).
 1. Configure [Bastion Host for AWS]({{< relref "ha_aws_bastion.md#Bastion Host Configuration" >}}).
