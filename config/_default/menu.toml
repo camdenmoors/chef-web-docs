@@ -106,7 +106,7 @@ identifier = "automate"
   weight = 20
 
   [[automate]]
-  title = "Deploy High Availability"
+  title = "High Availability"
   identifier = "automate/deploy_high_availability"
   parent = "automate"
   weight = 25
@@ -134,6 +134,12 @@ identifier = "automate"
     identifier = "automate/deploy_high_availability/on_premises_deployment"
     parent = "automate/deploy_high_availability"
     weight = 80
+
+    [[automate]]
+    title = "Minimal Node HA Deployment"
+    identifier = "automate/deploy_high_availability/minimal_node_ha_deployment"
+    parent = "automate/deploy_high_availability"
+    weight = 90
 
     [[automate]]
     title = "Backup and Restore"
@@ -170,12 +176,6 @@ identifier = "automate"
     identifier = "automate/deploy_high_availability/performance_benchmarking"
     parent = "automate/deploy_high_availability"
     weight = 200
-
-    [[automate]]
-    title = "Common Features"
-    identifier = "automate/deploy_high_availability/common_features"
-    parent = "automate/deploy_high_availability"
-    weight = 210
 
     [[automate]]
     title = "Troubleshooting"
