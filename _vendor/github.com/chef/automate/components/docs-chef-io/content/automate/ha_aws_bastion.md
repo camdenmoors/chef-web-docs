@@ -8,9 +8,15 @@ gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Configuring Bastion for AWS Deployment Type"
+<<<<<<< HEAD
     parent = "automate/deploy_high_availability/aws_deployment"
     identifier = "automate/deploy_high_availability/aws_deployment/ha_aws_bastion.md Configuring Bastion for AWS Deployment Type"
     weight = 230
+=======
+    parent = "automate/deploy_high_availability/reference"
+    identifier = "automate/deploy_high_availability/reference/ha_aws_bastion.md Configuring Bastion for AWS Deployment Type"
+    weight = 210
+>>>>>>> 2f6db7354eac5d40479f28cdb1f33d6519f0f38f
 +++
 
 Follow these steps to add a bastion host to your Linux environment on AWS cloud, which connects to other internal network hosts:

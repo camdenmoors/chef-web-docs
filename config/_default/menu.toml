@@ -107,6 +107,7 @@ identifier = "automate"
 
   [[automate]]
   title = "High Availability"
+  title = "Deploy High Availability"
   identifier = "automate/deploy_high_availability"
   parent = "automate"
   weight = 25
@@ -176,6 +177,12 @@ identifier = "automate"
     identifier = "automate/deploy_high_availability/performance_benchmarking"
     parent = "automate/deploy_high_availability"
     weight = 200
+
+    [[automate]]
+    title = "Common Features"
+    identifier = "automate/deploy_high_availability/common_features"
+    parent = "automate/deploy_high_availability"
+    weight = 210
 
     [[automate]]
     title = "Troubleshooting"

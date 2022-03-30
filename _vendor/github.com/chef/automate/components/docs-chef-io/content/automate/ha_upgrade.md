@@ -7,8 +7,13 @@ gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Upgrade"
+<<<<<<< HEAD
     parent = "automate/deploy_high_availability/common_features"
     identifier = "automate/deploy_high_availability/common_features/ha_upgrade.md Automate Upgrade"
+=======
+    parent = "automate/deploy_high_availability/ha_upgrade"
+    identifier = "automate/deploy_high_availability/ha_upgrade/ha_upgrade.md Automate Upgrade"
+>>>>>>> 2f6db7354eac5d40479f28cdb1f33d6519f0f38f
     weight = 200
 +++
 

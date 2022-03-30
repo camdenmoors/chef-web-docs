@@ -8,8 +8,13 @@ gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Validation Commands"
+<<<<<<< HEAD
     parent = "automate/deploy_high_availability/common_features"
     identifier = "automate/deploy_high_availability/common_features/ha_validation.md Validation Commands"
+=======
+    parent = "automate/deploy_high_availability/on_premises_deployment"
+    identifier = "automate/deploy_high_availability/on_premises_deployment/ha_validation.md Validation Commands"
+>>>>>>> 2f6db7354eac5d40479f28cdb1f33d6519f0f38f
     weight = 210
 +++
 
