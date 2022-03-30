@@ -1,15 +1,15 @@
 +++
-title = "Migration of Chef Server to Chef Automate HA"
+title = "Chef Backend to Automate HA"
 
 draft = false
 
 gh_repo = "automate"
 [menu]
   [menu.automate]
-    title = "Migration of Chef Server to Chef Automate HA"
+    title = "Chef Backend to Automate HA"
     parent = "automate/deploy_high_availability/migration"
-    identifier = "automate/deploy_high_availability/migration/ha_migration_server.md Migration of Chef Server to Chef Automate HA"
-    weight = 200
+    identifier = "automate/deploy_high_availability/migration/ha_chef_backend_to_automate_ha.md Chef Backend to Automate HA"
+    weight = 220
 +++
 
 This page explains the procedure to migrate the existing Chef infrastructure data to the newly deployed Chef Automate HA. This migration involves two steps, which are:
