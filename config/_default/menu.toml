@@ -148,12 +148,6 @@ identifier = "automate"
     parent = "automate/deploy_high_availability"
     weight = 100
 
-      [[automate]]
-      title = "Prerequisite"
-      identifier = "automate/deploy_high_availability/backup_and_restore/ha_backup_prerequisite"
-      parent = "automate/deploy_high_availability/backup_and_restore"
-      weight = 105
-
     [[automate]]
     title = "Upgrade"
     identifier = "automate/deploy_high_availability/ha_upgrade"
