@@ -7,13 +7,8 @@ gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Troubleshooting"
-<<<<<<< HEAD:_vendor/github.com/chef/automate/components/docs-chef-io/content/automate/ha_faqs.md
-    parent = "automate/deploy_high_availability/faqs"
-    identifier = "automate/deploy_high_availability/faqs/ha_faq.md Troubleshooting"
-=======
     parent = "automate/deploy_high_availability/troubleshooting"
     identifier = "automate/deploy_high_availability/troubleshooting/ha_troubleshooting.md Troubleshooting"
->>>>>>> 2f6db7354eac5d40479f28cdb1f33d6519f0f38f:_vendor/github.com/chef/automate/components/docs-chef-io/content/automate/ha_troubleshooting.md
     weight = 200
 +++
 

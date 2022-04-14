@@ -10,11 +10,7 @@ gh_repo = "automate"
     title = "Deployment Procedure"
     parent = "automate/deploy_high_availability/aws_deployment"
     identifier = "automate/deploy_high_availability/aws_deployment/ha_aws_deploy_steps.md Deployment Procedure"
-<<<<<<< HEAD
-    weight = 260
-=======
     weight = 230
->>>>>>> 2f6db7354eac5d40479f28cdb1f33d6519f0f38f
 +++
 
 Follow the steps below to deploy Chef Automate High Availability (HA) on AWS (Amazon Web Services) cloud.

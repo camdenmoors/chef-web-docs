@@ -3,11 +3,7 @@ module github.com/chef/chef-web-docs
 go 1.16
 
 require (
-<<<<<<< HEAD
-	github.com/chef/automate/components/docs-chef-io v0.0.0-20220328142331-304e50fc0a2b // indirect
-=======
-	github.com/chef/automate/components/docs-chef-io v0.0.0-20220330140840-7533554306b0 // indirect
->>>>>>> 2f6db7354eac5d40479f28cdb1f33d6519f0f38f
+	github.com/chef/automate/components/docs-chef-io v0.0.0-20220405095436-1e77397e829d // indirect
 	github.com/chef/chef-server/docs-chef-io v0.0.0-20220303162748-5640b2de7236 // indirect
 	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20220316132918-0f7624557db5 // indirect
 	github.com/chef/desktop-config/docs-chef-io v0.0.0-20211006114000-6bf6119bfc8a // indirect

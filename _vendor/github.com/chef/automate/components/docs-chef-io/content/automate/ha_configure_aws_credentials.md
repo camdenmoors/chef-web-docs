@@ -10,11 +10,7 @@ gh_repo = "automate"
     title = "Configuration of AWS Credential on Bastion Host"
     parent = "automate/deploy_high_availability/aws_deployment"
     identifier = "automate/deploy_high_availability/aws_deployment/ha_configure_aws_credentials.md Configuration of AWS Credential on Bastion Host"
-<<<<<<< HEAD
-    weight = 210
-=======
     weight = 220
->>>>>>> 2f6db7354eac5d40479f28cdb1f33d6519f0f38f
 +++
 
 You need to setup the AWS credentials on the bastion host to trigger the Amazon Web Services (AWS) deployment.

@@ -1,21 +1,18 @@
 +++
-title = "Migration"
+title = "Introduction"
 
 draft = false
 
 gh_repo = "automate"
 [menu]
   [menu.automate]
-    title = "Migration"
+    title = "Introduction"
     parent = "automate/deploy_high_availability/migration"
-    identifier = "automate/deploy_high_availability/migration/ha_migration.md Migration"
+    identifier = "automate/deploy_high_availability/migration/ha_migration.md Introduction"
     weight = 200
 +++
 
-This section explains the migration procedure for the following components of the Chef Automate High Availability (HA) feature:
-
-- Chef server (HA- backend) to Automate
-- Existing A2HA to Automate HA
+This page explains what is migration procedure and what are the most common examples of migrating data in Chef Automate High Availability (HA).
 
 ## What is Migration?
 

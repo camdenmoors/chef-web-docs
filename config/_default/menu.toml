@@ -107,7 +107,6 @@ identifier = "automate"
 
   [[automate]]
   title = "High Availability"
-  title = "Deploy High Availability"
   identifier = "automate/deploy_high_availability"
   parent = "automate"
   weight = 25
