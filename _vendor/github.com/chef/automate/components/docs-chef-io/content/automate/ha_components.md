@@ -17,15 +17,11 @@ This section lists the **Chef Automate High Availability (HA)** components and t
 
 ## Automate-ha-cluster-ctl
 
-Provides commands such as `automate-cluster-ctl provision/deploy` which is installed via automate-backend-deployment.
+Provides commands such as `automate-cluster-ctl provision/deploy` installed via automate-backend-deployment.
 
 ## Automate-ha-ctl
 
-Aids connect the backend (**postgres** and **opensearch**) databases using an automate configuration file and **Terraform** without any manual intervention.
-
-## Automate-ha-curator
-
-**OpenSearch** curator aids in curating and managing the **OpenSearch** indices and snapshots by obtaining the entire actionable list of indices (or snapshots) from the cluster. This component is the same as the default curator. It's written in a **hab** package to merge applications in a hab environment.
+Aids connect the backend (**postgres** and **opensearch**) databases using an automate configuration file and **Terraform** without manual intervention.
 
 ## Automate-ha-deployment
 
@@ -41,7 +37,7 @@ Provides a sidecar service for **automate-backend-opensearch** that reads user's
 
 ## Automate-ha-haproxy
 
-Aids in sending a request to the leader node and is placed on **postgres** cluster.
+Aids in sending a request to the leader node and is placed on the **postgres** cluster.
 
 ## Automate-ha-pgleaderchk
 
@@ -49,4 +45,4 @@ This component is used in a proxy health check to determine where to route SQL r
 
 ## Automate-ha-postgresql
 
-This component is a wrapper package of *core/postgresql11* for Chef Automate that provides a backend **HA PostgreSQL**.
+This component is a wrapper package of *core/postgresql13* for Chef Automate that provides a backend **HA PostgreSQL**.
